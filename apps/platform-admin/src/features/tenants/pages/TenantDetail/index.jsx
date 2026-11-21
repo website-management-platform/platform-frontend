@@ -84,21 +84,23 @@ const TenantDetail = () => {
       <Tabs tabs={tabs} activeTab={activeTab} onChange={(id) => setTab({ sekme: id }, { replace: true })} idPrefix="tenant" ariaLabel="Müşteri bölümleri" />
 
       <TabPanel id="genel" activeTab={activeTab} idPrefix="tenant">
-        <Card title="Müşteri bilgileri">
-          <DescriptionList
-            layout="grid"
-            columns={2}
-            items={[
-              { label: "Müşteri adı", value: tenant.displayName },
-              { label: "Durum", value: <StatusBadge status={tenant.status} /> },
-              { label: "Site kullanımı", value: `${tenant.siteCount} / ${tenant.quota.maxSites}` },
-              { label: "Oluşturma", value: formatDateTime(tenant.createdAt) },
-              { label: "Son güncelleme", value: formatDateTime(tenant.updatedAt) },
-            ]}
-          />
-        </Card>
-        <TenantAccount tenant={tenant} canManage={canManage} />
-        <TenantDataLifecycle tenant={tenant} canManage={canManage} />
+        <div className="tenant_detail_section">
+          <Card title="Müşteri bilgileri">
+            <DescriptionList
+              layout="grid"
+              columns={2}
+              items={[
+                { label: "Müşteri adı", value: tenant.displayName },
+                { label: "Durum", value: <StatusBadge status={tenant.status} /> },
+                { label: "Site kullanımı", value: `${tenant.siteCount} / ${tenant.quota.maxSites}` },
+                { label: "Oluşturma", value: formatDateTime(tenant.createdAt) },
+                { label: "Son güncelleme", value: formatDateTime(tenant.updatedAt) },
+              ]}
+            />
+          </Card>
+          <TenantAccount tenant={tenant} canManage={canManage} />
+          <TenantDataLifecycle tenant={tenant} canManage={canManage} />
+        </div>
       </TabPanel>
 
       <TabPanel id="siteler" activeTab={activeTab} idPrefix="tenant">

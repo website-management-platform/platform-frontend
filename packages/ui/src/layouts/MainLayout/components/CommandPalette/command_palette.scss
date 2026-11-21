@@ -1,0 +1,177 @@
+@use "../../../../styles/abstracts/mixins" as *;
+
+.command_palette_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--app-z-modal);
+  display: flex;
+  justify-content: center;
+  padding-top: 12vh;
+  padding-inline: var(--app-space-6);
+  padding-bottom: var(--app-space-6);
+  background-color: var(--app-color-overlay);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--app-transition-slow),
+    backdrop-filter var(--app-transition-slow),
+    visibility 0s linear var(--app-duration-slow);
+}
+
+.command_palette_overlay_open {
+  visibility: visible;
+  transition:
+    opacity var(--app-transition-slow),
+    backdrop-filter var(--app-transition-slow),
+    visibility 0s linear 0s;
+}
+
+.command_palette_overlay_show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  backdrop-filter: blur(4px);
+  transition:
+    opacity var(--app-transition-slow),
+    backdrop-filter var(--app-transition-slow),
+    visibility 0s linear 0s;
+}
+
+.command_palette {
+  width: 100%;
+  max-width: 560px;
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--app-color-surface);
+  border-radius: var(--app-radius-lg);
+  box-shadow: var(--app-shadow-xl);
+  opacity: 0;
+  transform: translateY(-16px);
+  transition:
+    opacity var(--app-transition-slow),
+    transform var(--app-transition-slow);
+}
+
+.command_palette_show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.command_palette_search {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-3);
+  padding: var(--app-space-4) var(--app-space-5);
+  border-bottom: 1px solid var(--app-color-border);
+  flex-shrink: 0;
+}
+
+.command_palette_search_icon {
+  color: var(--app-color-text-muted);
+  flex-shrink: 0;
+}
+
+.command_palette_input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: var(--app-font-size-lg);
+  color: var(--app-color-text);
+  min-width: 0;
+}
+
+.command_palette_input::placeholder {
+  color: var(--app-color-text-muted);
+}
+
+.command_palette_list {
+  overflow-y: auto;
+  padding: var(--app-space-2);
+  @include thin-scrollbar;
+}
+
+.command_palette_empty {
+  padding: var(--app-space-6);
+  text-align: center;
+  color: var(--app-color-text-muted);
+  font-size: var(--app-font-size-sm);
+}
+
+.command_palette_item {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-3);
+  width: 100%;
+  height: var(--app-control-height-md);
+  padding-inline: var(--app-space-3);
+  border-radius: var(--app-radius-md);
+  color: var(--app-color-text);
+  font-size: var(--app-font-size-md);
+  text-align: start;
+  cursor: pointer;
+  transition: background-color var(--app-transition-fast);
+}
+
+.command_palette_item_active {
+  background-color: var(--app-color-surface-muted);
+}
+
+.command_palette_group + .command_palette_group {
+  margin-top: var(--app-space-2);
+}
+
+.command_palette_group_title {
+  padding: var(--app-space-2) var(--app-space-3) var(--app-space-1);
+  font-size: var(--app-font-size-2xs);
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--app-letter-spacing-caps);
+}
+
+.command_palette_item_label {
+  flex-shrink: 0;
+}
+
+.command_palette_item_hint {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.command_palette_item_shortcut {
+  margin-inline-start: auto;
+}
+
+.command_palette_footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-4);
+  padding: var(--app-space-3) var(--app-space-5);
+  border-top: 1px solid var(--app-color-border);
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+  flex-shrink: 0;
+}
+
+.command_palette_footer_hint {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-1);
+}
+
+.command_palette_item_icon {
+  width: var(--app-icon-size-md);
+  height: var(--app-icon-size-md);
+  color: var(--app-color-text-muted);
+  flex-shrink: 0;
+}

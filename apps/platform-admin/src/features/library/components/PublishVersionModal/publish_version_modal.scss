@@ -1,0 +1,14 @@
+.publish_version_modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+
+  p {
+    margin: 0;
+  }
+}
+
+.publish_version_modal_title {
+  margin: 0;
+  font-size: var(--app-font-size-md);
+}

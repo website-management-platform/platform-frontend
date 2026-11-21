@@ -1,0 +1,28 @@
+.field_group_editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-5);
+}
+
+.field_group_editor_meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--app-space-4);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+
+  > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.field_group_editor_mono input {
+  font-family: var(--app-font-family-mono);
+}
+
+.field_group_editor_toolbar {
+  display: flex;
+  justify-content: flex-end;
+}

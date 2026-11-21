@@ -1,0 +1,168 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--app-space-3);
+  padding: var(--app-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--app-radius-lg);
+  font-size: var(--app-font-size-sm);
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity var(--app-transition-base), transform var(--app-transition-base);
+}
+
+.alert_closing {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.alert_compact {
+  padding: var(--app-space-2) var(--app-space-3);
+  gap: var(--app-space-2);
+  border-radius: var(--app-radius-md);
+}
+
+.alert_compact .alert_icon {
+  width: var(--app-icon-size-sm);
+  height: var(--app-icon-size-sm);
+}
+
+.alert_compact .alert_description {
+  font-size: var(--app-font-size-xs);
+}
+
+.alert_info {
+  --alert-tint: var(--app-color-info);
+  --alert-subtle: var(--app-color-info-subtle);
+  --alert-border: var(--app-color-info-border);
+  --alert-solid: var(--app-color-info-solid);
+  --alert-on-solid: var(--app-color-on-info);
+}
+
+.alert_success {
+  --alert-tint: var(--app-color-success);
+  --alert-subtle: var(--app-color-success-subtle);
+  --alert-border: var(--app-color-success-border);
+  --alert-solid: var(--app-color-success-solid);
+  --alert-on-solid: var(--app-color-on-success);
+}
+
+.alert_warning {
+  --alert-tint: var(--app-color-warning);
+  --alert-subtle: var(--app-color-warning-subtle);
+  --alert-border: var(--app-color-warning-border);
+  --alert-solid: var(--app-color-warning-solid);
+  --alert-on-solid: var(--app-color-on-warning);
+}
+
+.alert_danger {
+  --alert-tint: var(--app-color-danger);
+  --alert-subtle: var(--app-color-danger-subtle);
+  --alert-border: var(--app-color-danger-border);
+  --alert-solid: var(--app-color-danger-solid);
+  --alert-on-solid: var(--app-color-on-danger);
+}
+
+.alert_neutral {
+  --alert-tint: var(--app-color-text-secondary);
+  --alert-subtle: var(--app-color-surface-muted);
+  --alert-border: var(--app-color-border);
+  --alert-solid: var(--app-color-surface-inverse);
+  --alert-on-solid: var(--app-color-text-inverse);
+}
+
+.alert_icon {
+  width: var(--app-icon-size-md);
+  height: var(--app-icon-size-md);
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--alert-tint);
+}
+
+.alert_content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+  min-width: 0;
+
+  // Metin içindeki bağlantı yalnız renkle ayrışmaz (WCAG 1.4.1): her zaman altı çizili. Bağlantı olarak çizilen
+  // düğme (`Button as={RouterLink}`) bu kurala girmez; yoksa yazısı düğme zemininin rengini alıp kaybolur.
+  a:not(.button) {
+    color: inherit;
+    font-weight: var(--app-font-weight-semibold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+.alert_title {
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+}
+
+.alert_description {
+  color: var(--app-color-text-secondary);
+  line-height: var(--app-line-height-base);
+}
+
+.alert_action {
+  margin-top: var(--app-space-2);
+}
+
+.alert_dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: -4px -6px -4px 0;
+  border-radius: var(--app-radius-md);
+  flex-shrink: 0;
+  color: var(--app-color-text-muted);
+  transition: color var(--app-transition-fast), background-color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .alert_dismiss:hover {
+    color: var(--app-color-text);
+    background-color: color-mix(in srgb, currentColor 12%, transparent);
+  }
+}
+
+.alert_dismiss:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.alert_soft {
+  background-color: var(--alert-subtle);
+  border-color: var(--alert-border);
+}
+
+.alert_soft .alert_title {
+  color: var(--alert-tint);
+}
+
+.alert_outline {
+  background-color: var(--app-color-surface);
+  border-color: var(--alert-border);
+}
+
+.alert_accent {
+  background-color: var(--app-color-surface);
+  border-color: var(--app-color-border);
+  border-inline-start: 4px solid var(--alert-tint);
+}
+
+.alert_solid {
+  background-color: var(--alert-solid);
+  color: var(--alert-on-solid);
+}
+
+.alert_solid .alert_icon,
+.alert_solid .alert_title,
+.alert_solid .alert_description,
+.alert_solid .alert_dismiss {
+  color: inherit;
+}

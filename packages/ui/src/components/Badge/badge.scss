@@ -1,0 +1,166 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--app-space-1);
+  border: 1px solid transparent;
+  font-weight: var(--app-font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.badge_pill {
+  border-radius: var(--app-radius-full);
+}
+
+.badge_rounded {
+  border-radius: var(--app-radius-sm);
+}
+
+.badge_square {
+  border-radius: 0;
+}
+
+.badge_sm {
+  height: 20px;
+  padding-inline: var(--app-space-2);
+  font-size: var(--app-font-size-2xs);
+}
+
+.badge_md {
+  height: 24px;
+  padding-inline: var(--app-space-3);
+  font-size: var(--app-font-size-xs);
+}
+
+.badge_lg {
+  height: 28px;
+  padding-inline: var(--app-space-4);
+  font-size: var(--app-font-size-sm);
+}
+
+.badge_icon_only {
+  aspect-ratio: 1;
+  padding-inline: 0;
+}
+
+.badge_icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+.badge_label {
+  font-variant-numeric: tabular-nums;
+}
+
+.badge_dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+.badge_neutral {
+  --badge-tint: var(--app-color-text-secondary);
+  --badge-subtle: var(--app-color-surface-muted);
+  --badge-border: var(--app-color-border-strong);
+  --badge-solid: var(--app-color-neutral-solid);
+  --badge-on-solid: var(--app-color-on-neutral);
+}
+
+.badge_accent {
+  --badge-tint: var(--app-color-accent);
+  --badge-subtle: var(--app-color-accent-subtle);
+  --badge-border: var(--app-color-accent-border);
+  --badge-solid: var(--app-color-accent-solid);
+  --badge-on-solid: var(--app-color-on-accent);
+}
+
+.badge_info {
+  --badge-tint: var(--app-color-info);
+  --badge-subtle: var(--app-color-info-subtle);
+  --badge-border: var(--app-color-info-border);
+  --badge-solid: var(--app-color-info-solid);
+  --badge-on-solid: var(--app-color-on-info);
+}
+
+.badge_success {
+  --badge-tint: var(--app-color-success);
+  --badge-subtle: var(--app-color-success-subtle);
+  --badge-border: var(--app-color-success-border);
+  --badge-solid: var(--app-color-success-solid);
+  --badge-on-solid: var(--app-color-on-success);
+}
+
+.badge_warning {
+  --badge-tint: var(--app-color-warning);
+  --badge-subtle: var(--app-color-warning-subtle);
+  --badge-border: var(--app-color-warning-border);
+  --badge-solid: var(--app-color-warning-solid);
+  --badge-on-solid: var(--app-color-on-warning);
+}
+
+.badge_danger {
+  --badge-tint: var(--app-color-danger);
+  --badge-subtle: var(--app-color-danger-subtle);
+  --badge-border: var(--app-color-danger-border);
+  --badge-solid: var(--app-color-danger-solid);
+  --badge-on-solid: var(--app-color-on-danger);
+}
+
+.badge_appearance_soft {
+  background-color: var(--badge-subtle);
+  color: var(--badge-tint);
+}
+
+.badge_appearance_solid {
+  background-color: var(--badge-solid);
+  color: var(--badge-on-solid);
+}
+
+.badge_appearance_outline {
+  background-color: transparent;
+  border-color: var(--badge-border);
+  color: var(--badge-tint);
+}
+
+.badge_close {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3em;
+  height: 1.3em;
+  margin-inline-end: -0.3em;
+  border-radius: var(--app-radius-full);
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity var(--app-transition-fast), background-color var(--app-transition-fast);
+}
+
+.badge_close::after {
+  content: "";
+  position: absolute;
+  inset: calc((1.3em - 24px) / 2);
+}
+
+.badge_close svg {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+@media (hover: hover) {
+  .badge_close:hover {
+    opacity: 1;
+    background-color: color-mix(in srgb, currentColor 16%, transparent);
+  }
+}
+
+.badge_close:focus-visible {
+  outline: 2px solid transparent;
+  opacity: 1;
+  box-shadow: var(--app-shadow-focus-ring);
+}

@@ -1,0 +1,57 @@
+@use "../../../../styles/abstracts/variables" as *;
+
+.user_menu_trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  min-height: var(--app-control-height-md);
+  max-width: 240px;
+  padding-inline: var(--app-space-1) var(--app-space-2);
+  border-radius: var(--app-radius-md);
+  color: var(--app-color-text);
+  transition: background-color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .user_menu_trigger:hover {
+    background-color: var(--app-color-surface-muted);
+  }
+}
+
+.user_menu_name {
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-medium);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user_menu_chevron {
+  flex-shrink: 0;
+  color: var(--app-color-text-muted);
+}
+
+.user_menu_label_name,
+.user_menu_label_email {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.user_menu_label_name {
+  color: var(--app-color-text);
+  font-weight: var(--app-font-weight-semibold);
+}
+
+.user_menu_label_email {
+  font-weight: var(--app-font-weight-regular);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+@media (max-width: #{$breakpoint-md - 1px}) {
+  .user_menu_name,
+  .user_menu_chevron {
+    display: none;
+  }
+}

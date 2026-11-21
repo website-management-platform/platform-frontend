@@ -1,0 +1,25 @@
+.autosave_status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+  margin: 0;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.autosave_status_saved {
+  color: var(--app-color-success);
+}
+
+.autosave_status_conflict,
+.autosave_status_error {
+  padding: var(--app-space-2) var(--app-space-3);
+  border-radius: var(--app-radius-md);
+  background: var(--app-color-warning-subtle);
+  color: var(--app-color-text);
+}
+
+.autosave_status_error {
+  background: var(--app-color-danger-subtle);
+}

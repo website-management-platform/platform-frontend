@@ -1,0 +1,65 @@
+.file_dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--app-space-2);
+  padding: var(--app-space-8) var(--app-space-6);
+  border: 2px dashed var(--app-color-border-strong);
+  border-radius: var(--app-radius-lg);
+  background-color: var(--app-color-surface);
+  text-align: center;
+  transition: border-color var(--app-transition-fast), background-color var(--app-transition-fast);
+}
+
+.file_dropzone_sm {
+  padding: var(--app-space-5) var(--app-space-4);
+}
+
+.file_dropzone_active {
+  border-color: var(--app-color-accent);
+  background-color: var(--app-color-accent-subtle);
+}
+
+.file_dropzone_disabled {
+  opacity: 0.6;
+}
+
+.file_dropzone_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-accent-subtle);
+  color: var(--app-color-accent);
+  font-size: var(--app-font-size-h2);
+}
+
+.file_dropzone_title {
+  margin: 0;
+  font-weight: var(--app-font-weight-semibold);
+}
+
+.file_dropzone_description {
+  margin: 0 0 var(--app-space-2);
+  max-width: 32rem;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-secondary);
+}
+
+.file_dropzone_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .file_dropzone {
+    transition: none;
+  }
+}

@@ -1,0 +1,20 @@
+.preset_form_modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+}
+
+.preset_form_modal_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--app-space-4);
+}
+
+.preset_form_modal_mono input {
+  font-family: var(--app-font-family-mono);
+}
+
+.preset_form_modal_title {
+  margin: 0;
+  font-size: var(--app-font-size-md);
+}

@@ -1,0 +1,31 @@
+.assign_module_modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+}
+
+.assign_module_modal_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--app-space-4);
+}
+
+.assign_module_modal_mono input {
+  font-family: var(--app-font-family-mono);
+}
+
+.assign_module_modal_option {
+  display: flex;
+  flex-direction: column;
+}
+
+.assign_module_modal_option_meta,
+.assign_module_modal_description {
+  margin: 0;
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.assign_module_modal_description {
+  font-size: var(--app-font-size-sm);
+}

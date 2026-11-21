@@ -1,0 +1,77 @@
+@use "../../styles/abstracts/variables" as *;
+
+.field_group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-3);
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field_group_legend {
+  padding: 0;
+  margin-block-end: var(--app-space-1);
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-medium);
+  color: var(--app-color-text-secondary);
+}
+
+.field_group_required {
+  color: var(--app-color-danger);
+  margin-inline-start: 2px;
+}
+
+.field_group_optional {
+  margin-inline-start: var(--app-space-1);
+  font-size: var(--app-font-size-xs);
+  font-weight: var(--app-font-weight-regular);
+  color: var(--app-color-text-muted);
+}
+
+.field_group_description {
+  margin-block-start: calc(var(--app-space-2) * -1);
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.field_group_content_vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-3);
+}
+
+.field_group_content_horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-3) var(--app-space-6);
+}
+
+.field_group_content_grid {
+  display: grid;
+  gap: var(--app-space-3);
+}
+
+.field_group_columns_2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field_group_columns_3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.field_group_columns_4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.field_group_error {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-danger);
+}
+
+@media (max-width: #{$breakpoint-md - 1px}) {
+  .field_group_content_grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

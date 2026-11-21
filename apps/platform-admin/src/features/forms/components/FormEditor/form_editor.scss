@@ -1,0 +1,116 @@
+.form_editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-6);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form_editor_section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-3);
+
+  h3 {
+    margin: 0;
+    font-size: var(--app-font-size-md);
+  }
+}
+
+.form_editor_hint {
+  margin: 0;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.form_editor_grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--app-space-3);
+}
+
+.form_editor_fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.form_editor_field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-3);
+  padding: var(--app-space-4);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-md);
+  background: var(--app-color-surface);
+}
+
+.form_editor_field_head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+
+  strong {
+    overflow-wrap: anywhere;
+  }
+}
+
+.form_editor_field_actions {
+  display: inline-flex;
+  margin-left: auto;
+}
+
+.form_editor_checks,
+.form_editor_add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-2) var(--app-space-4);
+}
+
+.form_editor_add {
+  gap: var(--app-space-2);
+}
+
+.form_editor_options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--app-space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  legend {
+    margin-bottom: var(--app-space-2);
+    font-size: var(--app-font-size-sm);
+    font-weight: var(--app-font-weight-medium);
+  }
+}
+
+.form_editor_option {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+  align-items: end;
+  gap: var(--app-space-2);
+  width: 100%;
+}
+
+.form_editor_versions {
+  margin: 0;
+  padding-left: var(--app-space-5);
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+@media (max-width: 640px) {
+  .form_editor_grid,
+  .form_editor_option {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

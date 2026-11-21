@@ -1,0 +1,151 @@
+.spinner_wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-2);
+}
+
+.spinner_wrapper_centered {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.spinner_wrapper_overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  background-color: color-mix(in srgb, var(--app-color-surface) 80%, transparent);
+  border-radius: inherit;
+}
+
+.spinner_tone_muted {
+  color: var(--app-color-text-muted);
+}
+
+.spinner_tone_accent {
+  color: var(--app-color-accent);
+}
+
+.spinner_tone_current {
+  color: currentColor;
+}
+
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spinner_xs {
+  font-size: 12px;
+}
+
+.spinner_sm {
+  font-size: 16px;
+}
+
+.spinner_md {
+  font-size: 24px;
+}
+
+.spinner_lg {
+  font-size: 32px;
+}
+
+.spinner_xl {
+  font-size: 48px;
+}
+
+.spinner_ring {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: max(2px, 0.12em) solid color-mix(in srgb, currentColor 22%, transparent);
+  border-top-color: currentColor;
+  animation: spinner_spin var(--app-duration-spin) linear infinite;
+}
+
+.spinner_dots {
+  gap: 0.2em;
+  height: 1em;
+}
+
+.spinner_dots .spinner_part {
+  width: 0.26em;
+  height: 0.26em;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: spinner_bounce 900ms var(--app-easing-standard) infinite;
+}
+
+.spinner_dots .spinner_part:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.spinner_dots .spinner_part:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+.spinner_bars {
+  gap: 0.14em;
+  height: 1em;
+}
+
+.spinner_bars .spinner_part {
+  width: 0.14em;
+  height: 100%;
+  border-radius: 2px;
+  background-color: currentColor;
+  animation: spinner_bars 1s var(--app-easing-standard) infinite;
+}
+
+.spinner_bars .spinner_part:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.spinner_bars .spinner_part:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.spinner_bars .spinner_part:nth-child(4) {
+  animation-delay: 360ms;
+}
+
+.spinner_label {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+@keyframes spinner_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner_bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spinner_bars {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

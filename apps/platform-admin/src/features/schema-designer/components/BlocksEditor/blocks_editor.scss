@@ -1,0 +1,45 @@
+.blocks_editor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--app-space-2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.blocks_editor_legend {
+  padding: 0;
+  margin-bottom: var(--app-space-1);
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-medium);
+}
+
+.blocks_editor_list {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: var(--app-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blocks_editor_row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--app-space-2);
+  padding: var(--app-space-2);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-md);
+}
+
+.blocks_editor_mono input {
+  font-family: var(--app-font-family-mono);
+}
+
+.blocks_editor_remove {
+  align-self: end;
+  justify-self: end;
+}

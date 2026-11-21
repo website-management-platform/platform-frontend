@@ -1,0 +1,120 @@
+.popover_container {
+  display: inline-flex;
+}
+
+.popover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--app-z-dropdown);
+  min-width: 240px;
+  max-width: calc(100vw - (var(--app-space-4) * 2));
+  background-color: var(--app-color-surface);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-md);
+  box-shadow: var(--app-shadow-lg);
+  animation: popover_in var(--app-transition-fast);
+}
+
+.popover:focus {
+  outline: none;
+}
+
+.popover_size_sm {
+  width: 220px;
+  min-width: 0;
+}
+
+.popover_size_md {
+  width: 280px;
+}
+
+.popover_size_lg {
+  width: 360px;
+}
+
+.popover_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+  padding: var(--app-space-3) var(--app-space-4) 0;
+}
+
+.popover_title {
+  font-size: var(--app-font-size-md);
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+}
+
+.popover_close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: -4px -8px -4px auto;
+  border-radius: var(--app-radius-md);
+  color: var(--app-color-text-muted);
+  transition: background-color var(--app-transition-fast), color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .popover_close:hover {
+    background-color: var(--app-color-surface-muted);
+    color: var(--app-color-text);
+  }
+}
+
+.popover_close:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.popover_content {
+  padding: var(--app-space-4);
+}
+
+.popover_arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--app-color-surface);
+  border-inline-start: 1px solid var(--app-color-border);
+  border-block-start: 1px solid var(--app-color-border);
+}
+
+.popover[data-side="bottom"] .popover_arrow {
+  top: -6px;
+  left: calc(var(--floating-arrow-offset) - 5px);
+  transform: rotate(45deg);
+}
+
+.popover[data-side="top"] .popover_arrow {
+  bottom: -6px;
+  left: calc(var(--floating-arrow-offset) - 5px);
+  transform: rotate(225deg);
+}
+
+.popover[data-side="left"] .popover_arrow {
+  right: -6px;
+  top: calc(var(--floating-arrow-offset) - 5px);
+  transform: rotate(135deg);
+}
+
+.popover[data-side="right"] .popover_arrow {
+  left: -6px;
+  top: calc(var(--floating-arrow-offset) - 5px);
+  transform: rotate(-45deg);
+}
+
+@keyframes popover_in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

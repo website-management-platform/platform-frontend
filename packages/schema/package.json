@@ -1,0 +1,11 @@
+{
+  "name": "@wmp/schema",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Alan registry'si, şema doğrulama, koşul ve hesaplama motoru, şema farkı ve dry-run. Paneller ve mock aynı kodu kullanır (docs/backend/05-schema.md).",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.js"
+  }
+}

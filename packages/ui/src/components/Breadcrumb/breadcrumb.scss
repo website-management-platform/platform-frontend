@@ -1,0 +1,106 @@
+.breadcrumb_list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-1);
+}
+
+.breadcrumb_item {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-1);
+}
+
+.breadcrumb_link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-1);
+  padding: var(--app-space-1) var(--app-space-2);
+  border-radius: var(--app-radius-sm);
+  color: var(--app-color-text-muted);
+  font-size: var(--app-font-size-sm);
+  transition: background-color var(--app-transition-fast), color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .breadcrumb_link:hover {
+    background-color: var(--app-color-surface-muted);
+    color: var(--app-color-text);
+  }
+}
+
+.breadcrumb_link:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.breadcrumb_current {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-1);
+  padding: var(--app-space-1) var(--app-space-2);
+  color: var(--app-color-text);
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-medium);
+}
+
+.breadcrumb_icon {
+  width: var(--app-icon-size-sm);
+  height: var(--app-icon-size-sm);
+  flex-shrink: 0;
+}
+
+.breadcrumb_separator {
+  width: 14px;
+  height: 14px;
+  color: var(--app-color-text-disabled);
+  flex-shrink: 0;
+}
+
+.breadcrumb_ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--app-radius-sm);
+  color: var(--app-color-text-muted);
+  transition: background-color var(--app-transition-fast), color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .breadcrumb_ellipsis:hover {
+    background-color: var(--app-color-surface-muted);
+    color: var(--app-color-text);
+  }
+}
+
+.breadcrumb_ellipsis:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.breadcrumb_separator_text {
+  width: auto;
+  height: auto;
+  padding-inline: 2px;
+  font-size: var(--app-font-size-sm);
+  line-height: 1;
+}
+
+.breadcrumb_sm .breadcrumb_link,
+.breadcrumb_sm .breadcrumb_current {
+  padding: 2px var(--app-space-1);
+  font-size: var(--app-font-size-xs);
+}
+
+.breadcrumb_sm .breadcrumb_separator {
+  width: 12px;
+  height: 12px;
+}
+
+.breadcrumb_sm .breadcrumb_separator_text {
+  width: auto;
+  height: auto;
+  font-size: var(--app-font-size-xs);
+}

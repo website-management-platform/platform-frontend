@@ -1,0 +1,26 @@
+// Kütüphane sayfalarının ortak yardımcı sınıfları.
+.library_stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+}
+
+.library_muted {
+  margin: 0;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.library_block {
+  display: block;
+}
+
+.library_code {
+  font-family: var(--app-font-family-mono);
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.library_inline_link + .library_inline_link::before {
+  content: ", ";
+}

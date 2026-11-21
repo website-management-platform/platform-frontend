@@ -1,0 +1,30 @@
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--app-space-0-5);
+  min-width: 20px;
+  border-radius: var(--app-radius-sm);
+  border: 1px solid var(--app-color-border-strong);
+  border-block-end-width: 2px;
+  background-color: var(--app-color-surface);
+  color: var(--app-color-text-muted);
+  font-family: var(--app-font-family);
+  font-weight: var(--app-font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.kbd_sm {
+  padding: 2px 4px;
+  font-size: var(--app-font-size-2xs);
+}
+
+.kbd_md {
+  padding: 3px 6px;
+  font-size: var(--app-font-size-xs);
+}
+
+.kbd_key {
+  font: inherit;
+}

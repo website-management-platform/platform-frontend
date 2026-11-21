@@ -1,0 +1,31 @@
+.template_detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-5);
+}
+
+.template_detail_badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-1);
+}
+
+.template_detail_toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+}
+
+.template_detail_hint {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.template_detail_publish {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-3);
+}

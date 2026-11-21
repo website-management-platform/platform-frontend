@@ -1,0 +1,36 @@
+.shortcuts_dialog_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcuts_dialog_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  padding-block: var(--app-space-3);
+  border-bottom: 1px solid var(--app-color-border);
+}
+
+.shortcuts_dialog_item:first-child {
+  padding-top: 0;
+}
+
+.shortcuts_dialog_item_inactive .shortcuts_dialog_label,
+.shortcuts_dialog_item_inactive .kbd {
+  opacity: var(--app-opacity-disabled);
+}
+
+.shortcuts_dialog_label {
+  font-size: var(--app-font-size-md);
+  color: var(--app-color-text);
+}
+
+.shortcuts_dialog_status {
+  color: var(--app-color-text-muted);
+  font-size: var(--app-font-size-sm);
+}
+
+.shortcuts_dialog_setting {
+  margin-top: var(--app-space-5);
+}

@@ -1,0 +1,281 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--app-space-2);
+  border-radius: var(--app-radius-md);
+  font-family: var(--app-font-family);
+  font-weight: var(--app-font-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    background-color var(--app-transition-fast),
+    border-color var(--app-transition-fast),
+    color var(--app-transition-fast),
+    box-shadow var(--app-transition-fast),
+    transform var(--app-transition-fast);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: var(--app-opacity-disabled);
+}
+
+.button_sm {
+  min-height: var(--app-control-height-sm);
+  padding-inline: var(--app-space-3);
+  font-size: var(--app-font-size-sm);
+}
+
+.button_md {
+  min-height: var(--app-control-height-md);
+  padding-inline: var(--app-space-4);
+  font-size: var(--app-font-size-md);
+}
+
+.button_lg {
+  min-height: var(--app-control-height-lg);
+  padding-inline: var(--app-space-5);
+  font-size: var(--app-font-size-lg);
+}
+
+.button_radius_sm {
+  border-radius: var(--app-radius-sm);
+}
+
+.button_radius_md {
+  border-radius: var(--app-radius-md);
+}
+
+.button_radius_lg {
+  border-radius: var(--app-radius-lg);
+}
+
+.button_radius_pill {
+  border-radius: var(--app-radius-full);
+}
+
+.button_icon_only.button_sm {
+  width: var(--app-control-height-sm);
+  padding-inline: 0;
+}
+
+.button_icon_only.button_md {
+  width: var(--app-control-height-md);
+  padding-inline: 0;
+}
+
+.button_icon_only.button_lg {
+  width: var(--app-control-height-lg);
+  padding-inline: 0;
+}
+
+.button_full_width {
+  width: 100%;
+}
+
+.button_icon {
+  width: var(--app-icon-size-sm);
+  height: var(--app-icon-size-sm);
+  flex-shrink: 0;
+}
+
+.button_lg .button_icon {
+  width: var(--app-icon-size-md);
+  height: var(--app-icon-size-md);
+}
+
+.button_spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-inline-end-color: transparent;
+  animation: button_spin var(--app-duration-spin) linear infinite;
+}
+
+@keyframes button_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button_color_primary {
+  --button-solid-bg: var(--app-color-primary);
+  --button-solid-bg-hover: var(--app-color-primary-hover);
+  --button-solid-text: var(--app-color-on-primary);
+  --button-tint: var(--app-color-text);
+  --button-tint-subtle: var(--app-color-surface-muted);
+  --button-tint-border: var(--app-color-border-strong);
+}
+
+.button_color_accent {
+  --button-solid-bg: var(--app-color-accent-solid);
+  --button-solid-bg-hover: var(--app-color-accent-solid-hover);
+  --button-solid-text: var(--app-color-on-accent);
+  --button-tint: var(--app-color-accent);
+  --button-tint-subtle: var(--app-color-accent-subtle);
+  --button-tint-border: var(--app-color-accent-border);
+}
+
+.button_color_neutral {
+  --button-solid-bg: var(--app-color-neutral-solid);
+  --button-solid-bg-hover: var(--app-color-neutral-solid-hover);
+  --button-solid-text: var(--app-color-on-neutral);
+  --button-tint: var(--app-color-text);
+  --button-tint-subtle: var(--app-color-surface-muted);
+  --button-tint-border: var(--app-color-border-strong);
+}
+
+.button_color_success {
+  --button-solid-bg: var(--app-color-success-solid);
+  --button-solid-bg-hover: var(--app-color-success-solid-hover);
+  --button-solid-text: var(--app-color-on-success);
+  --button-tint: var(--app-color-success);
+  --button-tint-subtle: var(--app-color-success-subtle);
+  --button-tint-border: var(--app-color-success-border);
+}
+
+.button_color_warning {
+  --button-solid-bg: var(--app-color-warning-solid);
+  --button-solid-bg-hover: var(--app-color-warning-solid-hover);
+  --button-solid-text: var(--app-color-on-warning);
+  --button-tint: var(--app-color-warning);
+  --button-tint-subtle: var(--app-color-warning-subtle);
+  --button-tint-border: var(--app-color-warning-border);
+}
+
+.button_color_danger {
+  --button-solid-bg: var(--app-color-danger-solid);
+  --button-solid-bg-hover: var(--app-color-danger-solid-hover);
+  --button-solid-text: var(--app-color-on-danger);
+  --button-tint: var(--app-color-danger);
+  --button-tint-subtle: var(--app-color-danger-subtle);
+  --button-tint-border: var(--app-color-danger-border);
+}
+
+.button_solid {
+  background-color: var(--button-solid-bg);
+  color: var(--button-solid-text);
+}
+
+@media (hover: hover) {
+  .button_solid:hover:not(:disabled) {
+    background-color: var(--button-solid-bg-hover);
+  }
+}
+
+.button_soft {
+  background-color: var(--button-tint-subtle);
+  color: var(--button-tint);
+}
+
+@media (hover: hover) {
+  .button_soft:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--button-tint) 8%, var(--button-tint-subtle));
+  }
+}
+
+.button_outline {
+  background-color: transparent;
+  border-color: var(--button-tint-border);
+  color: var(--button-tint);
+}
+
+@media (hover: hover) {
+  .button_outline:hover:not(:disabled) {
+    background-color: var(--button-tint-subtle);
+  }
+}
+
+.button_ghost {
+  background-color: transparent;
+  color: var(--button-tint);
+}
+
+@media (hover: hover) {
+  .button_ghost:hover:not(:disabled) {
+    background-color: var(--button-tint-subtle);
+  }
+}
+
+.button_ghost.button_color_neutral {
+  color: var(--app-color-text-secondary);
+}
+
+@media (hover: hover) {
+  .button_ghost.button_color_neutral:hover:not(:disabled) {
+    color: var(--app-color-text);
+  }
+}
+
+.button_link {
+  height: auto;
+  min-height: 0;
+  padding-inline: 0;
+  background-color: transparent;
+  color: var(--button-tint);
+}
+
+@media (hover: hover) {
+  .button_link:hover:not(:disabled) {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+a.button_solid:hover {
+  color: var(--button-solid-text);
+}
+
+a.button_soft:hover,
+a.button_outline:hover,
+a.button_ghost:hover,
+a.button_link:hover {
+  color: var(--button-tint);
+}
+
+.button_group {
+  display: inline-flex;
+}
+
+.button_group .button {
+  border-radius: 0;
+}
+
+.button_group .button:first-child {
+  border-start-start-radius: var(--app-radius-md);
+  border-end-start-radius: var(--app-radius-md);
+}
+
+.button_group .button:last-child {
+  border-start-end-radius: var(--app-radius-md);
+  border-end-end-radius: var(--app-radius-md);
+}
+
+.button_group .button:not(:first-child) {
+  margin-inline-start: -1px;
+}
+
+.button_loading {
+  cursor: progress;
+}
+
+.button_loading:active {
+  transform: none;
+}
+
+.button[aria-disabled="true"]:not(.button_loading) {
+  cursor: not-allowed;
+  opacity: var(--app-opacity-disabled);
+}

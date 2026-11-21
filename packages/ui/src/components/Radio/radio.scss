@@ -1,0 +1,128 @@
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio_disabled {
+  cursor: not-allowed;
+  opacity: var(--app-opacity-disabled);
+}
+
+.radio_box {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.radio_sm .radio_box {
+  width: 16px;
+  height: 16px;
+}
+
+.radio_md .radio_box {
+  width: 18px;
+  height: 18px;
+}
+
+.radio_lg .radio_box {
+  width: 22px;
+  height: 22px;
+}
+
+.radio_input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio_input:disabled {
+  cursor: not-allowed;
+}
+
+.radio_indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--app-radius-full);
+  border: 1px solid var(--app-color-border-control);
+  background-color: var(--app-color-surface);
+  transition: background-color var(--app-transition-fast), border-color var(--app-transition-fast);
+}
+
+.radio_indicator::after {
+  content: "";
+  width: 44%;
+  height: 44%;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-on-accent);
+  transform: scale(0);
+  transition: transform var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .radio:not(.radio_disabled):hover .radio_indicator {
+    border-color: var(--app-color-border-control-hover);
+  }
+}
+
+.radio_input:checked ~ .radio_indicator {
+  background-color: var(--app-color-accent-solid);
+  border-color: var(--app-color-accent-solid);
+}
+
+@media (hover: hover) {
+  .radio:not(.radio_disabled):hover .radio_input:checked ~ .radio_indicator {
+    background-color: var(--app-color-accent-solid-hover);
+    border-color: var(--app-color-accent-solid-hover);
+  }
+}
+
+.radio_input:checked ~ .radio_indicator::after {
+  transform: scale(1);
+}
+
+.radio_input:focus-visible ~ .radio_indicator {
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.radio_sm .radio_label {
+  font-size: var(--app-font-size-sm);
+}
+
+.radio_lg .radio_label {
+  font-size: var(--app-font-size-lg);
+}
+
+.radio_label {
+  font-size: var(--app-font-size-md);
+  color: var(--app-color-text);
+}
+
+.radio_field {
+  --radio-field-offset: calc(18px + var(--app-space-2));
+
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+}
+
+.radio_field_sm {
+  --radio-field-offset: calc(16px + var(--app-space-2));
+}
+
+.radio_field_lg {
+  --radio-field-offset: calc(22px + var(--app-space-2));
+}
+
+.radio_description {
+  padding-inline-start: var(--radio-field-offset);
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}

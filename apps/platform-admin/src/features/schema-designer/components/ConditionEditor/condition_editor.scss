@@ -1,0 +1,46 @@
+.condition_editor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--app-space-3);
+  min-width: 0;
+}
+
+.condition_editor_rules {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: var(--app-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.condition_editor_rule {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--app-space-2);
+  padding: var(--app-space-2);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-md);
+
+  > :not(:last-child) {
+    grid-column: 1;
+  }
+
+  > :last-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.condition_editor_note,
+.condition_editor_error {
+  margin: 0;
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.condition_editor_error {
+  color: var(--app-color-danger);
+}

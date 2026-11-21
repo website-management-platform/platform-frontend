@@ -1,0 +1,12 @@
+.list_toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+}
+
+.list_toolbar_search {
+  flex: 1 1 18rem;
+  max-width: 24rem;
+}

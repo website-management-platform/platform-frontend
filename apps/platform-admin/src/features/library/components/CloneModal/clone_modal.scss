@@ -1,0 +1,9 @@
+.clone_modal_form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+}
+
+.clone_modal_mono input {
+  font-family: var(--app-font-family-mono);
+}

@@ -1,0 +1,211 @@
+.choice_card {
+  position: relative;
+  display: block;
+  container-type: inline-size;
+  padding: var(--app-space-4);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-lg);
+  background-color: var(--app-color-surface);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    border-color var(--app-transition-fast),
+    background-color var(--app-transition-fast),
+    box-shadow var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .choice_card:hover {
+    border-color: var(--app-color-border-strong);
+  }
+}
+
+:is(.choice_card[data-checked], .choice_card:has(.choice_card_input:checked)) {
+  border-color: var(--app-color-accent);
+  background-color: var(--app-color-accent-subtle);
+  box-shadow: inset 0 0 0 1px var(--app-color-accent);
+}
+
+.choice_card:has(.choice_card_input:focus-visible) {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.choice_card:has(.choice_card_input:checked:focus-visible) {
+  box-shadow: inset 0 0 0 1px var(--app-color-accent), var(--app-shadow-focus-ring);
+}
+
+.choice_card_disabled {
+  cursor: not-allowed;
+  opacity: var(--app-opacity-disabled);
+}
+
+@media (hover: hover) {
+  .choice_card_disabled:hover {
+    border-color: var(--app-color-border);
+  }
+}
+
+.choice_card_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.choice_card_layout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--app-space-3);
+}
+
+.choice_card_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--app-radius-md);
+  background-color: var(--app-color-surface-muted);
+  color: var(--app-color-text-secondary);
+  transition: background-color var(--app-transition-fast), color var(--app-transition-fast);
+}
+
+.choice_card_icon svg {
+  width: var(--app-icon-size-md);
+  height: var(--app-icon-size-md);
+}
+
+:is(.choice_card[data-checked], .choice_card:has(.choice_card_input:checked)) .choice_card_icon {
+  background-color: var(--app-color-accent-muted);
+  color: var(--app-color-accent);
+}
+
+.choice_card_text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-0-5);
+}
+
+.choice_card_title_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+}
+
+.choice_card_badge {
+  display: contents;
+}
+
+.choice_card_meta {
+  flex-shrink: 0;
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.choice_card_title {
+  font-size: var(--app-font-size-md);
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+}
+
+.choice_card_description {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+// Seçili kartın vurgulu zemininde soluk metin 4.5:1'in altına düşer; ikincil metin rengine geçilir.
+:is(.choice_card[data-checked], .choice_card:has(.choice_card_input:checked)) .choice_card_description {
+  color: var(--app-color-text-secondary);
+}
+
+.choice_card_indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: 1px solid var(--app-color-border-strong);
+  background-color: var(--app-color-surface);
+  color: var(--app-color-on-accent);
+  transition: background-color var(--app-transition-fast), border-color var(--app-transition-fast);
+}
+
+.choice_card_radio .choice_card_indicator {
+  border-radius: var(--app-radius-full);
+}
+
+.choice_card_radio .choice_card_indicator::after {
+  content: "";
+  width: 44%;
+  height: 44%;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-on-accent);
+  transform: scale(0);
+  transition: transform var(--app-transition-fast);
+}
+
+.choice_card_checkbox .choice_card_indicator {
+  border-radius: var(--app-radius-sm);
+}
+
+.choice_card_checkbox .choice_card_indicator svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0;
+}
+
+:is(.choice_card[data-checked], .choice_card:has(.choice_card_input:checked)) .choice_card_indicator {
+  background-color: var(--app-color-accent-solid);
+  border-color: var(--app-color-accent-solid);
+}
+
+:is(.choice_card_radio[data-checked], .choice_card_radio:has(.choice_card_input:checked)) .choice_card_indicator::after {
+  transform: scale(1);
+}
+
+:is(.choice_card_checkbox[data-checked], .choice_card_checkbox:has(.choice_card_input:checked)) .choice_card_indicator svg {
+  opacity: 1;
+}
+
+:is(.choice_card[data-checked], .choice_card:has(.choice_card_input:checked)) .badge_appearance_soft {
+  background-color: var(--app-color-surface);
+  box-shadow: inset 0 0 0 1px var(--badge-border);
+}
+
+@container (max-width: 380px) {
+  .choice_card_layout {
+    flex-wrap: wrap;
+    row-gap: var(--app-space-3);
+  }
+
+  .choice_card_icon {
+    order: 1;
+  }
+
+  .choice_card_indicator {
+    order: 2;
+    margin-inline-start: auto;
+  }
+
+  .choice_card_layout_with_icon .choice_card_text {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .choice_card_meta {
+    order: 4;
+    flex-basis: 100%;
+    font-size: var(--app-font-size-lg);
+  }
+}

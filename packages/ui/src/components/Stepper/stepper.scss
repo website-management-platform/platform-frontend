@@ -1,0 +1,314 @@
+@use "../../styles/abstracts/variables" as *;
+
+.stepper {
+  display: flex;
+  gap: var(--app-space-2);
+}
+
+.stepper_horizontal {
+  align-items: flex-start;
+}
+
+.stepper_vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+.stepper_item {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.stepper_step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--app-space-3);
+  width: 100%;
+  padding: var(--app-space-1);
+  border-radius: var(--app-radius-md);
+  text-align: start;
+}
+
+.stepper_step_clickable {
+  transition: background-color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .stepper_step_clickable:hover {
+    background-color: var(--app-color-surface-muted);
+  }
+}
+
+.stepper_step_clickable:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.stepper_indicator {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--app-radius-full);
+  border: 2px solid var(--app-color-border-strong);
+  background-color: var(--app-color-surface);
+  color: var(--app-color-text-muted);
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-semibold);
+  transition: background-color var(--app-transition-base), border-color var(--app-transition-base), color var(--app-transition-base);
+}
+
+.stepper_indicator svg {
+  width: 16px;
+  height: 16px;
+}
+
+.stepper_sm .stepper_indicator {
+  width: 24px;
+  height: 24px;
+  font-size: var(--app-font-size-xs);
+}
+
+.stepper_sm .stepper_indicator svg {
+  width: 12px;
+  height: 12px;
+}
+
+.stepper_text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-top: 5px;
+}
+
+.stepper_sm .stepper_text {
+  padding-top: 2px;
+}
+
+.stepper_label {
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+}
+
+.stepper_description {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.stepper_item_upcoming .stepper_label {
+  color: var(--app-color-text-muted);
+}
+
+.stepper_item_current .stepper_indicator {
+  border-color: var(--app-color-accent-solid);
+  color: var(--app-color-accent);
+  box-shadow: 0 0 0 4px var(--app-color-accent-subtle);
+}
+
+.stepper_item_complete .stepper_indicator {
+  border-color: var(--app-color-accent-solid);
+  background-color: var(--app-color-accent-solid);
+  color: var(--app-color-on-accent);
+}
+
+.stepper_item_error .stepper_indicator {
+  border-color: var(--app-color-danger-solid);
+  background-color: var(--app-color-danger-solid);
+  color: var(--app-color-on-danger);
+}
+
+.stepper_item_error .stepper_label {
+  color: var(--app-color-danger);
+}
+
+.stepper_horizontal .stepper_item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--app-space-2);
+}
+
+.stepper_horizontal .stepper_item:last-child {
+  flex: 0 0 auto;
+}
+
+.stepper_horizontal .stepper_step {
+  width: auto;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.stepper_connector {
+  flex: 1;
+  min-width: var(--app-space-4);
+  height: 2px;
+  margin-top: 20px;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-border);
+}
+
+.stepper_sm .stepper_connector {
+  margin-top: 16px;
+}
+
+.stepper_item_complete .stepper_connector {
+  background-color: var(--app-color-accent-solid);
+}
+
+.stepper_vertical .stepper_item {
+  padding-bottom: var(--app-space-4);
+}
+
+.stepper_vertical .stepper_item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: calc(32px + var(--app-space-2));
+  bottom: var(--app-space-1);
+  inset-inline-start: calc(16px + var(--app-space-1) - 1px);
+  width: 2px;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-border);
+}
+
+.stepper_vertical .stepper_item_complete:not(:last-child)::after {
+  background-color: var(--app-color-accent-solid);
+}
+
+.stepper_vertical.stepper_sm .stepper_item:not(:last-child)::after {
+  top: calc(24px + var(--app-space-2));
+  inset-inline-start: calc(12px + var(--app-space-1) - 1px);
+}
+
+.stepper_mobile_caption {
+  display: none;
+  margin: var(--app-space-3) 0 0;
+  color: var(--app-color-text);
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-semibold);
+}
+
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .stepper_mobile_caption {
+    display: block;
+  }
+
+  .stepper_horizontal .stepper_text,
+  .stepper_horizontal .stepper_description {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+.stepper_progress {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: var(--app-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stepper_progress_step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+  width: 100%;
+  padding: 0 0 var(--app-space-1);
+  border-radius: var(--app-radius-sm);
+  font: inherit;
+  text-align: start;
+}
+
+.stepper_progress_step_clickable {
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .stepper_progress_step_clickable:hover .stepper_progress_label {
+    color: var(--app-color-accent);
+  }
+}
+
+.stepper_progress_step_clickable:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.stepper_progress_bar {
+  display: block;
+  height: 4px;
+  margin-bottom: var(--app-space-1);
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-border);
+  transition: background-color var(--app-transition-base);
+}
+
+.stepper_progress_item_complete .stepper_progress_bar,
+.stepper_progress_item_current .stepper_progress_bar {
+  background-color: var(--app-color-accent-solid);
+}
+
+.stepper_progress_item_error .stepper_progress_bar {
+  background-color: var(--app-color-danger-solid);
+}
+
+.stepper_progress_index {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-1);
+  font-size: var(--app-font-size-xs);
+  font-weight: var(--app-font-weight-medium);
+  color: var(--app-color-text-muted);
+
+  svg {
+    width: 12px;
+    height: 12px;
+    color: var(--app-color-accent);
+  }
+}
+
+.stepper_progress_label {
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stepper_progress_item_current .stepper_progress_label,
+.stepper_progress_item_complete .stepper_progress_label {
+  color: var(--app-color-text);
+}
+
+.stepper_progress_item_current .stepper_progress_index {
+  color: var(--app-color-accent);
+}
+
+// Dar ekranda adlar sığmaz: yalnız çubuklar ve şu anki adımın adı görünür.
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .stepper_progress_item:not(.stepper_progress_item_current) .stepper_progress_label,
+  .stepper_progress_item:not(.stepper_progress_item_current) .stepper_progress_index {
+    visibility: hidden;
+  }
+
+  .stepper_progress_item_current .stepper_progress_step {
+    overflow: visible;
+  }
+
+  .stepper_progress_item_current .stepper_progress_label {
+    overflow: visible;
+  }
+}

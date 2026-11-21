@@ -1,0 +1,62 @@
+.table_wrapper {
+  position: relative;
+  overflow-x: auto;
+}
+
+.table_wrapper_bordered {
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-lg);
+  background: var(--app-color-surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--app-font-size-sm);
+}
+
+.table_caption {
+  padding: var(--app-space-3) var(--app-space-5);
+  text-align: start;
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+}
+
+.table th,
+.table td {
+  padding: var(--app-space-3) var(--app-space-5);
+  text-align: start;
+  border-bottom: 1px solid var(--app-color-border);
+  white-space: nowrap;
+}
+
+.table thead th {
+  font-size: var(--app-font-size-xs);
+  font-weight: var(--app-font-weight-medium);
+  color: var(--app-color-text-muted);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table_bordered th,
+.table_bordered td {
+  padding-inline: var(--app-space-4);
+}
+
+.table_bordered thead th {
+  font-size: inherit;
+  color: var(--app-color-text-secondary);
+  background: var(--app-color-surface-subtle);
+}
+
+.table_hoverable tbody tr {
+  transition: background-color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .table_hoverable tbody tr:hover {
+    background-color: var(--app-color-surface-subtle);
+  }
+}

@@ -1,0 +1,8 @@
+# Netlify sitesi: "Base directory" boş (repo kökü), "Package directory" apps/platform-admin.
+# Ortam değişkenleri (Netlify sitesinde): API_ORIGIN = backend'in https kökeni, STORAGE_ORIGIN = R2 hesap uç noktası.
+[build]
+  command = "npm run build -w @wmp/platform-admin && node scripts/netlify-config.mjs apps/platform-admin/dist"
+  publish = "apps/platform-admin/dist"
+
+[build.environment]
+  NODE_VERSION = "22"

@@ -1,0 +1,23 @@
+.site_table td {
+  vertical-align: middle;
+}
+
+.site_table_name {
+  display: block;
+  font-weight: var(--app-font-weight-semibold);
+}
+
+.site_table_key,
+.site_table_muted {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.site_table_domain {
+  overflow-wrap: anywhere;
+}
+
+.site_table_end {
+  text-align: end;
+  white-space: nowrap;
+}

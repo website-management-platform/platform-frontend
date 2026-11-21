@@ -1,0 +1,94 @@
+.template_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-5);
+}
+
+.template_list_toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-3);
+}
+
+.template_list_search {
+  flex: 1 1 260px;
+}
+
+.template_list_category {
+  flex: 0 1 240px;
+  min-width: 180px;
+}
+
+.template_list_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--app-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.template_list_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-2);
+  padding: var(--app-space-4);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-lg);
+  background: var(--app-color-surface);
+  box-shadow: var(--app-shadow-xs);
+  transition: border-color var(--app-duration-fast) var(--app-easing-standard), box-shadow var(--app-duration-fast) var(--app-easing-standard);
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--app-color-accent-border);
+    box-shadow: var(--app-shadow-sm);
+  }
+}
+
+// Kartın tamamı tıklanabilir; erişilebilir ad bağlantının kendisidir.
+.template_list_link {
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::after {
+      outline: 2px solid var(--app-color-focus-ring);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.template_list_description {
+  margin: 0;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-secondary);
+}
+
+.template_list_badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-1);
+}
+
+.template_list_meta {
+  margin: auto 0 0;
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+
+  code {
+    font-family: var(--app-font-family-mono);
+  }
+}

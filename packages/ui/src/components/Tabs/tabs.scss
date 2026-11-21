@@ -1,0 +1,226 @@
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-1);
+}
+
+// Dar ekranda sekmeler sığmazsa liste kendi içinde yatay kayar; sayfa taşmaz. Odak halkası kırpılmasın diye küçük iç boşluk.
+.tabs_horizontal {
+  position: relative;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  padding-block-start: 2px;
+  padding-inline: 2px;
+  margin-inline: -2px;
+}
+
+.tabs_horizontal .tabs_item {
+  flex-shrink: 0;
+}
+
+.tabs_item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--app-space-2);
+  font-weight: var(--app-font-weight-medium);
+  color: var(--app-color-text-secondary);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--app-transition-fast),
+    background-color var(--app-transition-fast),
+    border-color var(--app-transition-fast),
+    box-shadow var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .tabs_item:hover:not([aria-disabled="true"]) {
+    color: var(--app-color-text);
+  }
+}
+
+.tabs_item:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+  border-radius: var(--app-radius-sm);
+}
+
+.tabs_item[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: var(--app-opacity-disabled);
+}
+
+.tabs_md .tabs_item {
+  padding: var(--app-space-2) var(--app-space-3);
+  font-size: var(--app-font-size-md);
+}
+
+.tabs_sm .tabs_item {
+  padding: var(--app-space-1) var(--app-space-3);
+  font-size: var(--app-font-size-sm);
+}
+
+.tabs_icon {
+  width: var(--app-icon-size-sm);
+  height: var(--app-icon-size-sm);
+  flex-shrink: 0;
+}
+
+.tabs_dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--app-radius-full);
+  flex-shrink: 0;
+}
+
+.tabs_dot_accent {
+  background-color: var(--app-color-accent);
+}
+
+.tabs_dot_success {
+  background-color: var(--app-color-success);
+}
+
+.tabs_dot_warning {
+  background-color: var(--app-color-warning);
+}
+
+.tabs_dot_danger {
+  background-color: var(--app-color-danger);
+}
+
+.tabs_dot_neutral {
+  background-color: var(--app-color-text-muted);
+}
+
+.tabs_badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding-inline: 6px;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-surface-muted);
+  color: var(--app-color-text-secondary);
+  font-size: var(--app-font-size-2xs);
+  font-weight: var(--app-font-weight-semibold);
+}
+
+.tabs_item_active .tabs_badge {
+  background-color: var(--app-color-accent-subtle);
+  color: var(--app-color-accent);
+}
+
+.tabs_full_width {
+  display: flex;
+  width: 100%;
+}
+
+.tabs_full_width .tabs_item {
+  flex: 1;
+}
+
+// Alt çizgi gölgeyle çizilir: yatay kaydırmada (overflow) kırpılmaz, etkin sekmenin çizgisi üstüne biner.
+.tabs_line,
+.tabs_enclosed {
+  box-shadow: inset 0 -1px 0 var(--app-color-border);
+}
+
+.tabs_line {
+  gap: var(--app-space-5);
+}
+
+.tabs_line .tabs_item {
+  padding-inline: 0;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs_line .tabs_item_active {
+  color: var(--app-color-accent);
+  border-bottom-color: var(--app-color-accent);
+}
+
+.tabs_enclosed {
+  gap: var(--app-space-1);
+}
+
+.tabs_enclosed .tabs_item {
+  border: 1px solid transparent;
+  border-start-start-radius: var(--app-radius-md);
+  border-start-end-radius: var(--app-radius-md);
+}
+
+.tabs_enclosed .tabs_item_active {
+  background-color: var(--app-color-surface);
+  border-color: var(--app-color-border);
+  border-bottom-color: var(--app-color-surface);
+  color: var(--app-color-text);
+}
+
+.tabs_soft {
+  display: inline-flex;
+  padding: var(--app-space-1);
+  background-color: var(--app-color-surface-muted);
+  border-radius: var(--app-radius-lg);
+}
+
+.tabs_soft .tabs_item {
+  border-radius: var(--app-radius-md);
+}
+
+.tabs_soft .tabs_item_active {
+  background-color: var(--app-color-surface);
+  color: var(--app-color-text);
+  box-shadow: var(--app-shadow-xs);
+}
+
+.tabs_pill {
+  gap: var(--app-space-2);
+}
+
+.tabs_pill .tabs_item {
+  border-radius: var(--app-radius-full);
+}
+
+.tabs_pill .tabs_item_active {
+  background-color: var(--app-color-accent-subtle);
+  color: var(--app-color-accent);
+}
+
+.tabs_vertical {
+  flex-direction: column;
+  align-items: stretch;
+  border-bottom: none;
+}
+
+.tabs_vertical .tabs_item {
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+.tabs_line.tabs_vertical {
+  gap: var(--app-space-1);
+  border-inline-start: 1px solid var(--app-color-border);
+}
+
+.tabs_line.tabs_vertical .tabs_item {
+  padding-inline: var(--app-space-3);
+  margin-inline-start: -1px;
+  border-bottom: none;
+  border-inline-start: 2px solid transparent;
+}
+
+.tabs_line.tabs_vertical .tabs_item_active {
+  border-inline-start-color: var(--app-color-accent);
+}
+
+.tabs_panel:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+  border-radius: var(--app-radius-sm);
+}

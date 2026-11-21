@@ -1,0 +1,21 @@
+{
+  "name": "@wmp/ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "İki panelin ortak frontend katmanı: bileşenler, token'lar, hook'lar, API istemcisi, kabuk.",
+  "sideEffects": [
+    "*.scss"
+  ],
+  "dependencies": {
+    "@tanstack/react-query": "^5.107.1",
+    "@wmp/schema": "^0.0.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-hot-toast": "^2.6.1",
+    "react-icons": "^5.7.0",
+    "react-router": "^8.5.1",
+    "react-select": "^5.10.2"
+  }
+}

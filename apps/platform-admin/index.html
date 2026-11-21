@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Marka ikonu sağlanınca gerçek dosyayla değişir; boş ikon gereksiz /favicon.ico isteğini önler. -->
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <link rel="preload" href="%UI_FONTS_DIR%/Inter-Latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="%UI_FONTS_DIR%/Inter-LatinExt.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="description" content="Universal Website Admin platform yönetim paneli" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <title>%APP_NAME%</title>
+    <script>
+      (function () {
+        try {
+          var colorMode = window.localStorage.getItem("%STORAGE_PREFIX%color_mode") === "dark" ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", colorMode);
+          document.documentElement.style.colorScheme = colorMode;
+          if (window.localStorage.getItem("%STORAGE_PREFIX%density") === "compact") {
+            document.documentElement.setAttribute("data-density", "compact");
+          }
+          document.querySelector('meta[name="theme-color"]').setAttribute("content", colorMode === "dark" ? "#0F172A" : "#FFFFFF");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

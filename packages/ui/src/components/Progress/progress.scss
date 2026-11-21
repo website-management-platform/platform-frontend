@@ -1,0 +1,210 @@
+.progress_linear_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+  width: 100%;
+}
+
+.progress_linear_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-2);
+}
+
+.progress_linear_label {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-secondary);
+}
+
+.progress_linear_percent {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.progress_linear {
+  width: 100%;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-surface-muted);
+  overflow: hidden;
+}
+
+.progress_linear_sm {
+  height: 4px;
+}
+
+.progress_linear_md {
+  height: 6px;
+}
+
+.progress_linear_lg {
+  height: 10px;
+}
+
+.progress_linear_bar {
+  height: 100%;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-accent);
+  transition: width var(--app-transition-slow);
+}
+
+.progress_linear_bar_success {
+  background-color: var(--app-color-success);
+}
+
+.progress_linear_bar_warning {
+  background-color: var(--app-color-warning);
+}
+
+.progress_linear_bar_danger {
+  background-color: var(--app-color-danger);
+}
+
+.progress_linear_bar_indeterminate {
+  width: 40%;
+  animation: progress_linear_indeterminate 1.4s ease-in-out infinite;
+}
+
+@keyframes progress_linear_indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.progress_circular {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress_circular_sm {
+  width: 32px;
+  height: 32px;
+}
+
+.progress_circular_md {
+  width: 48px;
+  height: 48px;
+}
+
+.progress_circular_lg {
+  width: 64px;
+  height: 64px;
+}
+
+.progress_circular svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress_circular_track {
+  fill: none;
+  stroke: var(--app-color-surface-muted);
+  stroke-width: 3;
+}
+
+.progress_circular_bar {
+  fill: none;
+  stroke: var(--app-color-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--app-transition-slow);
+}
+
+.progress_circular_bar_success {
+  stroke: var(--app-color-success);
+}
+
+.progress_circular_bar_warning {
+  stroke: var(--app-color-warning);
+}
+
+.progress_circular_bar_danger {
+  stroke: var(--app-color-danger);
+}
+
+.progress_circular_indeterminate {
+  animation: progress_circular_spin 1s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes progress_circular_spin {
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+.progress_circular_label {
+  position: absolute;
+  font-size: var(--app-font-size-xs);
+  font-weight: var(--app-font-weight-semibold);
+  color: var(--app-color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.progress_linear_bar_striped {
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--app-color-neutral-0) 22%, transparent) 0,
+    color-mix(in srgb, var(--app-color-neutral-0) 22%, transparent) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  background-size: 22px 22px;
+}
+
+.progress_linear_bar_animated {
+  animation: progress_stripes var(--app-duration-stripes) linear infinite;
+}
+
+@keyframes progress_stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 22px 0;
+  }
+}
+
+.progress_linear_segmented {
+  display: flex;
+  gap: 3px;
+  background-color: transparent;
+}
+
+.progress_segment {
+  flex: 1;
+  height: 100%;
+  border-radius: var(--app-radius-full);
+  background-color: var(--app-color-surface-muted);
+}
+
+.progress_segment_filled {
+  background-color: var(--app-color-accent);
+}
+
+.progress_segment_success {
+  background-color: var(--app-color-success);
+}
+
+.progress_segment_warning {
+  background-color: var(--app-color-warning);
+}
+
+.progress_segment_danger {
+  background-color: var(--app-color-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress_linear_bar_indeterminate,
+  .progress_linear_bar_animated,
+  .progress_circular_indeterminate {
+    animation: none;
+  }
+}

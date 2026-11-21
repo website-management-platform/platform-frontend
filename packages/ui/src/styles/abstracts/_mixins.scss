@@ -1,0 +1,21 @@
+@mixin thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-color-border-strong) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--app-color-border-strong);
+    border-radius: var(--app-radius-full);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--app-color-text-muted);
+  }
+}

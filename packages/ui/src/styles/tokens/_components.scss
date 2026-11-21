@@ -1,0 +1,50 @@
+:root,
+[data-theme] {
+  --app-color-sidebar-bg: color-mix(in srgb, var(--app-color-accent-50) 50%, var(--app-color-neutral-0));
+  --app-color-sidebar-border: var(--app-color-border);
+  --app-color-sidebar-text: var(--app-color-neutral-600);
+  --app-color-sidebar-text-strong: var(--app-color-neutral-900);
+  --app-color-sidebar-item-active-bg: var(--app-color-accent-100);
+  --app-color-sidebar-item-active-text: var(--app-color-accent-700);
+  --app-color-sidebar-item-hover-bg: color-mix(in srgb, var(--app-color-neutral-900) 5.5%, transparent);
+
+  --app-brand-mark-background: linear-gradient(135deg, var(--app-color-accent-500), var(--app-color-accent-700));
+  --app-brand-mark-color: var(--app-color-on-accent);
+
+  --app-switch-thumb-color: var(--app-color-neutral-0);
+
+  --app-icon-tone-accent-bg: var(--app-color-accent-subtle);
+  --app-icon-tone-accent-fg: var(--app-color-accent);
+  --app-icon-tone-success-bg: var(--app-color-success-subtle);
+  --app-icon-tone-success-fg: var(--app-color-success);
+  --app-icon-tone-warning-bg: var(--app-color-warning-subtle);
+  --app-icon-tone-warning-fg: var(--app-color-warning);
+  --app-icon-tone-danger-bg: var(--app-color-danger-subtle);
+  --app-icon-tone-danger-fg: var(--app-color-danger);
+  --app-icon-tone-neutral-bg: var(--app-color-surface-muted);
+  --app-icon-tone-neutral-fg: var(--app-color-text-secondary);
+
+  --app-chart-series-primary: var(--app-color-accent-600);
+  --app-chart-series-secondary: var(--app-color-accent-300);
+
+  --app-auth-brand-bg: var(--app-color-neutral-900);
+  --app-auth-brand-text: var(--app-color-neutral-0);
+  --app-auth-brand-text-muted: var(--app-color-neutral-300);
+  --app-auth-brand-accent: var(--app-color-accent-300);
+  --app-auth-brand-border: color-mix(in srgb, var(--app-color-neutral-0) 12%, transparent);
+}
+
+[data-theme="dark"] {
+  --app-color-sidebar-bg: var(--app-color-neutral-900);
+  --app-color-sidebar-border: color-mix(in srgb, var(--app-color-neutral-0) 8%, transparent);
+  --app-color-sidebar-text: var(--app-color-neutral-300);
+  --app-color-sidebar-text-strong: var(--app-color-neutral-50);
+  --app-color-sidebar-item-active-bg: color-mix(in srgb, var(--app-color-accent-500) 16%, transparent);
+  --app-color-sidebar-item-active-text: var(--app-color-accent-300);
+  --app-color-sidebar-item-hover-bg: color-mix(in srgb, var(--app-color-neutral-0) 6%, transparent);
+
+  --app-chart-series-primary: var(--app-color-accent-400);
+  --app-chart-series-secondary: var(--app-color-accent-700);
+
+  --app-auth-brand-bg: color-mix(in srgb, var(--app-color-neutral-900) 60%, var(--app-color-neutral-950));
+}

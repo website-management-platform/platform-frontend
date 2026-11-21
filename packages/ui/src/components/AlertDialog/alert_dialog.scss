@@ -1,0 +1,297 @@
+@use "../../styles/abstracts/variables" as *;
+
+.alert_dialog_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--app-z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--app-space-6);
+  overflow-y: auto;
+  background-color: var(--app-color-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--app-transition-base),
+    visibility 0s linear var(--app-duration-base);
+}
+
+.alert_dialog_overlay_show {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--app-transition-base),
+    visibility 0s linear 0s;
+}
+
+.alert_dialog {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  background-color: var(--app-color-surface);
+  border-radius: var(--app-radius-xl);
+  box-shadow: var(--app-shadow-xl);
+  opacity: 0;
+  transform: scale(0.96);
+  transition:
+    opacity var(--app-transition-base),
+    transform var(--app-transition-base);
+}
+
+.alert_dialog_show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.alert_dialog:focus {
+  outline: none;
+}
+
+.alert_dialog_sm {
+  max-width: 400px;
+}
+
+.alert_dialog_md {
+  max-width: 460px;
+}
+
+.alert_dialog_lg {
+  max-width: 540px;
+}
+
+.alert_dialog_tone_accent {
+  --alert-dialog-tint: var(--app-color-accent);
+  --alert-dialog-subtle: var(--app-color-accent-subtle);
+  --alert-dialog-solid: var(--app-color-accent-solid);
+  --alert-dialog-on-solid: var(--app-color-on-accent);
+}
+
+.alert_dialog_tone_danger {
+  --alert-dialog-tint: var(--app-color-danger);
+  --alert-dialog-subtle: var(--app-color-danger-subtle);
+  --alert-dialog-solid: var(--app-color-danger-solid);
+  --alert-dialog-on-solid: var(--app-color-on-danger);
+}
+
+.alert_dialog_tone_warning {
+  --alert-dialog-tint: var(--app-color-warning);
+  --alert-dialog-subtle: var(--app-color-warning-subtle);
+  --alert-dialog-solid: var(--app-color-warning-solid);
+  --alert-dialog-on-solid: var(--app-color-on-warning);
+}
+
+.alert_dialog_tone_success {
+  --alert-dialog-tint: var(--app-color-success);
+  --alert-dialog-subtle: var(--app-color-success-subtle);
+  --alert-dialog-solid: var(--app-color-success-solid);
+  --alert-dialog-on-solid: var(--app-color-on-success);
+}
+
+.alert_dialog_main {
+  display: flex;
+  flex-direction: column;
+  padding: var(--app-space-6);
+}
+
+.alert_dialog_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--app-radius-full);
+}
+
+.alert_dialog_icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.alert_dialog_icon_soft {
+  background-color: var(--alert-dialog-subtle);
+  color: var(--alert-dialog-tint);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--alert-dialog-subtle) 50%, transparent);
+}
+
+.alert_dialog_icon_solid {
+  background-color: var(--alert-dialog-solid);
+  color: var(--alert-dialog-on-solid);
+}
+
+.alert_dialog_icon_outline {
+  border: 2px solid var(--alert-dialog-tint);
+  color: var(--alert-dialog-tint);
+}
+
+.alert_dialog_heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-2);
+  min-width: 0;
+}
+
+.alert_dialog_title {
+  margin: 0;
+  font-size: var(--app-font-size-h3);
+  font-weight: var(--app-font-weight-semibold);
+  line-height: var(--app-line-height-tight);
+  color: var(--app-color-text);
+}
+
+.alert_dialog_description {
+  font-size: var(--app-font-size-md);
+  line-height: var(--app-line-height-base);
+  color: var(--app-color-text-secondary);
+}
+
+.alert_dialog_extra {
+  margin-top: var(--app-space-5);
+  text-align: start;
+}
+
+.alert_dialog_error {
+  margin-top: var(--app-space-4);
+  padding: var(--app-space-2) var(--app-space-3);
+  border: 1px solid var(--app-color-danger-border);
+  border-radius: var(--app-radius-md);
+  background-color: var(--app-color-danger-subtle);
+  color: var(--app-color-danger);
+  font-size: var(--app-font-size-sm);
+  text-align: start;
+}
+
+.alert_dialog_actions {
+  display: flex;
+  gap: var(--app-space-3);
+  margin-top: var(--app-space-6);
+}
+
+.alert_dialog_actions_inline > .button {
+  flex: 1;
+}
+
+.alert_dialog_actions_stacked {
+  flex-direction: column-reverse;
+}
+
+.alert_dialog_actions_stacked > .button {
+  width: 100%;
+}
+
+.alert_dialog_centered .alert_dialog_main {
+  align-items: center;
+  padding-top: var(--app-space-8);
+  text-align: center;
+}
+
+.alert_dialog_centered .alert_dialog_icon {
+  margin-bottom: var(--app-space-5);
+}
+
+.alert_dialog_centered .alert_dialog_actions,
+.alert_dialog_centered .alert_dialog_extra,
+.alert_dialog_centered .alert_dialog_error {
+  align-self: stretch;
+}
+
+.alert_dialog_side_row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--app-space-4);
+}
+
+.alert_dialog_side .alert_dialog_icon {
+  width: 44px;
+  height: 44px;
+}
+
+.alert_dialog_side .alert_dialog_icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.alert_dialog_side .alert_dialog_icon_soft {
+  box-shadow: none;
+}
+
+.alert_dialog_side .alert_dialog_heading {
+  padding-top: var(--app-space-1);
+}
+
+.alert_dialog_side .alert_dialog_actions {
+  justify-content: flex-end;
+}
+
+.alert_dialog_side .alert_dialog_actions_inline > .button {
+  flex: 0 0 auto;
+}
+
+.alert_dialog_banner {
+  display: flex;
+  justify-content: center;
+  padding: var(--app-space-8) var(--app-space-6);
+  background-color: var(--alert-dialog-subtle);
+}
+
+.alert_dialog_banner .alert_dialog_icon_soft {
+  background-color: var(--app-color-surface);
+  box-shadow: var(--app-shadow-sm);
+}
+
+.alert_dialog_banner + .alert_dialog_main {
+  align-items: center;
+  text-align: center;
+}
+
+.alert_dialog_banner + .alert_dialog_main .alert_dialog_actions,
+.alert_dialog_banner + .alert_dialog_main .alert_dialog_extra,
+.alert_dialog_banner + .alert_dialog_main .alert_dialog_error {
+  align-self: stretch;
+}
+
+.alert_dialog_close {
+  position: absolute;
+  top: var(--app-space-3);
+  inset-inline-end: var(--app-space-3);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--app-radius-md);
+  color: var(--app-color-text-muted);
+  transition: background-color var(--app-transition-fast), color var(--app-transition-fast);
+}
+
+.alert_dialog_close svg {
+  width: var(--app-icon-size-md);
+  height: var(--app-icon-size-md);
+}
+
+@media (hover: hover) {
+  .alert_dialog_close:hover {
+    background-color: var(--app-color-surface-muted);
+    color: var(--app-color-text);
+  }
+}
+
+.alert_dialog_close:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .alert_dialog_actions_inline {
+    flex-direction: column-reverse;
+  }
+
+  .alert_dialog_actions_inline > .button,
+  .alert_dialog_side .alert_dialog_actions_inline > .button {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}

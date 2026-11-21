@@ -1,0 +1,48 @@
+# Ön yüz CI (backend ADR-0015): lint, iki panelin ve örnek sitenin üretim derlemesi, üretim bağımlılıklarında açık
+# denetimi ve sır taraması. Eylemler commit özetiyle sabitlenmiştir. Yayın Netlify'ın kendi derlemesiyle yapılır.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Üretim derlemesi
+        run: npm run build
+      - name: Netlify yayın dosyaları üretilebiliyor mu
+        env:
+          API_ORIGIN: https://api.ornek.example
+          STORAGE_ORIGIN: https://hesap.r2.cloudflarestorage.com
+        run: |
+          node scripts/netlify-config.mjs apps/platform-admin/dist
+      - name: Üretim bağımlılıklarında açık (yüksek ve kritik)
+        run: npm audit --omit=dev --audit-level=high
+      - name: Sır taraması
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: secret
+          exit-code: "1"

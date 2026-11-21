@@ -1,0 +1,240 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--app-color-surface);
+  border-radius: var(--app-radius-lg);
+}
+
+.card_flat {
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.card_outlined {
+  border: 1px solid var(--app-color-border);
+  box-shadow: none;
+}
+
+.card_elevated {
+  border: 1px solid var(--app-color-border);
+  box-shadow: var(--app-shadow-sm);
+}
+
+.card_soft {
+  background-color: var(--app-color-surface-subtle);
+  border: 1px solid transparent;
+}
+
+.card_ghost {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.card_radius_sm {
+  border-radius: var(--app-radius-sm);
+}
+
+.card_radius_md {
+  border-radius: var(--app-radius-md);
+}
+
+.card_radius_lg {
+  border-radius: var(--app-radius-lg);
+}
+
+.card_radius_xl {
+  border-radius: var(--app-radius-xl);
+}
+
+.card_hoverable {
+  transition:
+    transform var(--app-transition-base),
+    box-shadow var(--app-transition-base),
+    border-color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  .card_hoverable:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--app-shadow-md);
+    border-color: var(--app-color-border-strong);
+  }
+}
+
+.card_selected {
+  border-color: var(--app-color-accent);
+  box-shadow: 0 0 0 1px var(--app-color-accent), var(--app-shadow-sm);
+}
+
+@media (hover: hover) {
+  .card_selected:hover {
+    border-color: var(--app-color-accent);
+    box-shadow: 0 0 0 1px var(--app-color-accent), var(--app-shadow-sm);
+  }
+}
+
+.card_clickable {
+  position: relative;
+}
+
+.card_clickable:active {
+  transform: translateY(0) scale(0.995);
+}
+
+.card_clickable:has(.card_primary_action:focus-visible) {
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.card_primary_action {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+}
+
+.card_primary_action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.card_primary_action:focus-visible {
+  outline: 2px solid transparent;
+}
+
+.card_primary_action_standalone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border-radius: inherit;
+}
+
+.card_clickable .card_actions,
+.card_clickable .card_footer {
+  position: relative;
+  z-index: 1;
+}
+
+.card_header {
+  padding: var(--app-card-padding);
+  border-bottom: 1px solid var(--app-color-border);
+}
+
+.card_header_row {
+  display: flex;
+  // Dar kartta (iki sütunlu ızgara, mobil) eylemler başlığı sıkıştırmaz, alt satıra iner.
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--app-space-4);
+}
+
+.card_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--app-radius-lg);
+}
+
+.card_icon svg {
+  width: var(--app-icon-size-md);
+  height: var(--app-icon-size-md);
+}
+
+.card_icon_accent {
+  background-color: var(--app-icon-tone-accent-bg);
+  color: var(--app-icon-tone-accent-fg);
+}
+
+.card_icon_success {
+  background-color: var(--app-icon-tone-success-bg);
+  color: var(--app-icon-tone-success-fg);
+}
+
+.card_icon_warning {
+  background-color: var(--app-icon-tone-warning-bg);
+  color: var(--app-icon-tone-warning-fg);
+}
+
+.card_icon_danger {
+  background-color: var(--app-icon-tone-danger-bg);
+  color: var(--app-icon-tone-danger-fg);
+}
+
+.card_icon_neutral {
+  background-color: var(--app-icon-tone-neutral-bg);
+  color: var(--app-icon-tone-neutral-fg);
+}
+
+.card_heading {
+  flex: 1 1 14rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+}
+
+.card_title {
+  font-size: var(--app-font-size-h4);
+  margin: 0;
+}
+
+.card_description {
+  font-size: var(--app-font-size-sm);
+  line-height: var(--app-line-height-base);
+  color: var(--app-color-text-muted);
+  margin: 0;
+}
+
+.card_actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+  flex-shrink: 0;
+  // Dar ekranda birden çok düğme kart genişliğini aşmaz, alt alta dizilir.
+  max-width: 100%;
+  // Alt satıra indiğinde de sağa yaslı kalır.
+  margin-inline-start: auto;
+}
+
+.card_body {
+  flex: 1;
+  padding: var(--app-card-padding);
+}
+
+.card_no_padding .card_body {
+  padding: 0;
+}
+
+.card_footer {
+  padding: var(--app-card-padding);
+  border-top: 1px solid var(--app-color-border);
+}
+
+// Hizalı kart ızgarası: aynı satırdaki kartlar eşit yüksekliktedir; başlık, gövde ve alt bilgi bölümleri subgrid ile
+// aynı çizgiden başlar (kısa ve uzun açıklamalı kartlar yan yana derli toplu durur). Alt bilgisi olmayan kartta son
+// satır boş kalır. Kullanım: <div className="card_grid"><Card …/></div>.
+.card_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(22rem, 100%), 1fr));
+  gap: var(--app-space-4);
+}
+
+.card_grid > .card {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  min-width: 0;
+}
+
+.card_grid > .card > .card_footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--app-space-3);
+}

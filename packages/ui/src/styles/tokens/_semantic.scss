@@ -1,0 +1,142 @@
+:root,
+[data-theme] {
+  color-scheme: light;
+
+  --app-color-background: var(--app-color-neutral-50);
+  --app-color-surface: var(--app-color-neutral-0);
+  --app-color-surface-subtle: var(--app-color-neutral-50);
+  --app-color-surface-muted: var(--app-color-neutral-100);
+  --app-color-surface-inverse: var(--app-color-neutral-900);
+
+  --app-color-text: var(--app-color-neutral-900);
+  --app-color-text-secondary: var(--app-color-neutral-700);
+  --app-color-text-muted: var(--app-color-neutral-500);
+  --app-color-text-disabled: var(--app-color-neutral-400);
+  --app-color-text-inverse: var(--app-color-neutral-0);
+
+  --app-color-border: var(--app-color-neutral-200);
+  --app-color-border-strong: var(--app-color-neutral-300);
+  --app-color-border-control: var(--app-color-neutral-500);
+  --app-color-border-control-hover: var(--app-color-neutral-700);
+
+  --app-color-primary: var(--app-color-neutral-900);
+  --app-color-primary-hover: var(--app-color-neutral-800);
+  --app-color-on-primary: var(--app-color-neutral-0);
+
+  --app-color-accent: var(--app-color-accent-600);
+  --app-color-accent-hover: var(--app-color-accent-700);
+  --app-color-accent-subtle: var(--app-color-accent-50);
+  --app-color-accent-muted: var(--app-color-accent-100);
+  --app-color-accent-border: var(--app-color-accent-200);
+  --app-color-accent-solid: var(--app-color-accent-600);
+  --app-color-accent-solid-hover: var(--app-color-accent-700);
+  --app-color-on-accent: var(--app-color-neutral-0);
+
+  --app-color-success: var(--app-color-success-700);
+  --app-color-success-subtle: var(--app-color-success-50);
+  --app-color-success-border: var(--app-color-success-200);
+  --app-color-success-solid: var(--app-color-success-700);
+  --app-color-success-solid-hover: var(--app-color-success-800);
+  --app-color-on-success: var(--app-color-neutral-0);
+
+  --app-color-warning: var(--app-color-warning-700);
+  --app-color-warning-subtle: var(--app-color-warning-50);
+  --app-color-warning-border: var(--app-color-warning-200);
+  --app-color-warning-solid: var(--app-color-warning-700);
+  --app-color-warning-solid-hover: var(--app-color-warning-800);
+  --app-color-on-warning: var(--app-color-neutral-0);
+
+  --app-color-danger: var(--app-color-danger-700);
+  --app-color-danger-subtle: var(--app-color-danger-50);
+  --app-color-danger-border: var(--app-color-danger-200);
+  --app-color-danger-solid: var(--app-color-danger-600);
+  --app-color-danger-solid-hover: var(--app-color-danger-700);
+  --app-color-on-danger: var(--app-color-neutral-0);
+
+  --app-color-neutral-solid: var(--app-color-neutral-600);
+  --app-color-neutral-solid-hover: var(--app-color-neutral-700);
+  --app-color-on-neutral: var(--app-color-neutral-0);
+
+  --app-color-info: var(--app-color-info-600);
+  --app-color-info-subtle: var(--app-color-info-50);
+  --app-color-info-border: var(--app-color-info-200);
+  --app-color-info-solid: var(--app-color-info-600);
+  --app-color-info-solid-hover: var(--app-color-info-700);
+  --app-color-on-info: var(--app-color-neutral-0);
+
+  --app-color-overlay: color-mix(in srgb, var(--app-color-neutral-900) 45%, transparent);
+  --app-color-border-focused: var(--app-color-accent);
+  --app-color-focus-ring: color-mix(in srgb, var(--app-color-accent-600) 70%, transparent);
+  --app-shadow-focus-ring: 0 0 0 3px var(--app-color-focus-ring);
+  --app-shadow-focus-ring-danger: 0 0 0 3px color-mix(in srgb, var(--app-color-danger) 80%, transparent);
+  --app-shadow-focus-ring-success: 0 0 0 3px color-mix(in srgb, var(--app-color-success) 80%, transparent);
+
+  --app-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --app-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --app-shadow-md: 0 4px 10px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --app-shadow-lg: 0 12px 24px rgba(15, 23, 42, 0.08), 0 4px 8px rgba(15, 23, 42, 0.04);
+  --app-shadow-xl: 0 24px 40px rgba(15, 23, 42, 0.12), 0 8px 16px rgba(15, 23, 42, 0.05);
+  --app-shadow-scroll-top: 0 4px 12px -8px rgba(15, 23, 42, 0.35);
+  --app-shadow-scroll-bottom: 0 -4px 12px -8px rgba(15, 23, 42, 0.35);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --app-color-background: var(--app-color-neutral-950);
+  --app-color-surface: var(--app-color-neutral-900);
+  --app-color-surface-subtle: color-mix(in srgb, var(--app-color-neutral-900) 70%, var(--app-color-neutral-950));
+  --app-color-surface-muted: color-mix(in srgb, var(--app-color-neutral-800) 70%, var(--app-color-neutral-900));
+  --app-color-surface-inverse: var(--app-color-neutral-700);
+
+  --app-color-text: var(--app-color-neutral-50);
+  --app-color-text-secondary: var(--app-color-neutral-300);
+  --app-color-text-muted: var(--app-color-neutral-400);
+  --app-color-text-disabled: var(--app-color-neutral-600);
+  --app-color-text-inverse: var(--app-color-neutral-0);
+
+  --app-color-border: color-mix(in srgb, var(--app-color-neutral-0) 12%, transparent);
+  --app-color-border-strong: color-mix(in srgb, var(--app-color-neutral-0) 20%, transparent);
+  --app-color-border-control: var(--app-color-neutral-500);
+  --app-color-border-control-hover: var(--app-color-neutral-400);
+
+  --app-color-primary: var(--app-color-neutral-50);
+  --app-color-primary-hover: var(--app-color-neutral-200);
+  --app-color-on-primary: var(--app-color-neutral-900);
+
+  --app-color-accent: var(--app-color-accent-400);
+  --app-color-accent-hover: var(--app-color-accent-300);
+  --app-color-accent-subtle: color-mix(in srgb, var(--app-color-accent-500) 14%, transparent);
+  --app-color-accent-muted: color-mix(in srgb, var(--app-color-accent-500) 24%, transparent);
+  --app-color-accent-border: color-mix(in srgb, var(--app-color-accent-500) 32%, transparent);
+
+  --app-color-success: var(--app-color-success-400);
+  --app-color-success-subtle: color-mix(in srgb, var(--app-color-success-400) 14%, transparent);
+  --app-color-success-border: color-mix(in srgb, var(--app-color-success-400) 30%, transparent);
+
+  --app-color-warning: var(--app-color-warning-400);
+  --app-color-warning-subtle: color-mix(in srgb, var(--app-color-warning-400) 14%, transparent);
+  --app-color-warning-border: color-mix(in srgb, var(--app-color-warning-400) 30%, transparent);
+
+  --app-color-danger: var(--app-color-danger-400);
+  --app-color-danger-subtle: color-mix(in srgb, var(--app-color-danger-400) 14%, transparent);
+  --app-color-danger-border: color-mix(in srgb, var(--app-color-danger-400) 30%, transparent);
+
+  --app-color-neutral-solid: var(--app-color-neutral-500);
+  --app-color-neutral-solid-hover: var(--app-color-neutral-600);
+
+  --app-color-info: var(--app-color-info-400);
+  --app-color-info-subtle: color-mix(in srgb, var(--app-color-info-500) 14%, transparent);
+  --app-color-info-border: color-mix(in srgb, var(--app-color-info-500) 30%, transparent);
+
+  --app-color-overlay: color-mix(in srgb, var(--app-color-neutral-950) 60%, transparent);
+  --app-color-focus-ring: color-mix(in srgb, var(--app-color-accent-400) 60%, transparent);
+
+  --app-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --app-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --app-shadow-md: 0 4px 10px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --app-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.45), 0 4px 8px rgba(0, 0, 0, 0.3);
+  --app-shadow-xl: 0 24px 40px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.35);
+  --app-shadow-scroll-top: 0 6px 14px -8px rgba(0, 0, 0, 0.7);
+  --app-shadow-scroll-bottom: 0 -6px 14px -8px rgba(0, 0, 0, 0.7);
+}

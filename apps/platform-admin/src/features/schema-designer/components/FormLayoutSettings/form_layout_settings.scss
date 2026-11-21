@@ -1,0 +1,33 @@
+.form_layout_settings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--app-space-3);
+}
+
+.form_layout_settings_groups {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: var(--app-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.form_layout_settings_group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-1);
+
+  > :first-child {
+    flex: 1 1 200px;
+  }
+}
+
+.form_layout_settings_count {
+  padding: 0 var(--app-space-2);
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}

@@ -1,0 +1,10 @@
+.full_page_state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--app-space-6);
+  background-color: var(--app-color-background);
+  color: var(--app-color-text-secondary);
+}

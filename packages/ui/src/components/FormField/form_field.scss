@@ -1,0 +1,81 @@
+@use "../../styles/abstracts/variables" as *;
+
+.form_field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--app-space-2);
+}
+
+.form_field_label {
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-medium);
+  color: var(--app-color-text-secondary);
+}
+
+.form_field_label_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+  width: 100%;
+}
+
+.form_field_optional {
+  margin-inline-start: var(--app-space-1);
+  font-size: var(--app-font-size-xs);
+  font-weight: var(--app-font-weight-regular);
+  color: var(--app-color-text-muted);
+}
+
+.form_field_label_action {
+  font-size: var(--app-font-size-xs);
+}
+
+.form_field_control {
+  max-width: 100%;
+}
+
+.form_field_success {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-success);
+}
+
+.form_field_horizontal {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.35fr) minmax(0, 1fr);
+  align-items: start;
+  column-gap: var(--app-space-5);
+  row-gap: var(--app-space-2);
+}
+
+.form_field_horizontal .form_field_label_row {
+  min-height: var(--app-control-height-md);
+}
+
+.form_field_horizontal .form_field_hint,
+.form_field_horizontal .form_field_error,
+.form_field_horizontal .form_field_success {
+  grid-column: 2;
+}
+
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .form_field_horizontal {
+    display: flex;
+  }
+}
+
+.form_field_required {
+  color: var(--app-color-danger);
+  margin-inline-start: 2px;
+}
+
+.form_field_hint {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.form_field_error {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-danger);
+}

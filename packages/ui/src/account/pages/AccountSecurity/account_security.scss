@@ -1,0 +1,74 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.account_security {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-6);
+  max-width: 880px;
+}
+
+.account_security_password {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+  max-width: 28rem;
+}
+
+.account_security_sessions {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.account_security_session {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-4);
+  padding-block: var(--app-space-4);
+  border-top: 1px solid var(--app-color-border);
+}
+
+.account_security_session:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.account_security_session_icon {
+  flex-shrink: 0;
+  width: var(--app-icon-size-lg);
+  height: var(--app-icon-size-lg);
+  color: var(--app-color-text-muted);
+}
+
+.account_security_session_text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--app-space-1);
+  min-width: 0;
+}
+
+.account_security_session_title {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+  font-weight: var(--app-font-weight-medium);
+}
+
+.account_security_session_meta {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-secondary);
+}
+
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .account_security_session {
+    flex-wrap: wrap;
+  }
+
+  .account_security_session > .button {
+    margin-inline-start: calc(var(--app-icon-size-lg) + var(--app-space-4));
+  }
+}

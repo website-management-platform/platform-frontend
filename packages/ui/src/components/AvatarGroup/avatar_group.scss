@@ -1,0 +1,26 @@
+.avatar_group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.avatar_group > .avatar .avatar_inner {
+  box-shadow: 0 0 0 2px var(--app-color-surface);
+}
+
+.avatar_group_xs > .avatar:not(:first-child),
+.avatar_group_sm > .avatar:not(:first-child) {
+  margin-inline-start: -6px;
+}
+
+.avatar_group_md > .avatar:not(:first-child) {
+  margin-inline-start: -8px;
+}
+
+.avatar_group_lg > .avatar:not(:first-child),
+.avatar_group_xl > .avatar:not(:first-child) {
+  margin-inline-start: -12px;
+}
+
+.avatar_group_overflow .avatar_initials {
+  font-size: 0.85em;
+}

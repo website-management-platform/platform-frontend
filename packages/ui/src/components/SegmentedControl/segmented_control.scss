@@ -1,0 +1,76 @@
+// Dar ekranda seçenekler sığmazsa denetim kendi içinde kayar; sayfa yatay kaymaz.
+.segmented_control {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 2px;
+  padding: 2px;
+  background-color: var(--app-color-surface-muted);
+  border-radius: var(--app-radius-md);
+}
+
+.segmented_control_full_width {
+  display: flex;
+  width: 100%;
+}
+
+.segmented_control_full_width .segmented_control_item {
+  flex: 1;
+}
+
+.segmented_control_item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--app-space-2);
+  padding-inline: var(--app-space-3);
+  border-radius: var(--app-radius-sm);
+  color: var(--app-color-text-secondary);
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-medium);
+  white-space: nowrap;
+  transition: background-color var(--app-transition-fast), color var(--app-transition-fast), box-shadow var(--app-transition-fast);
+}
+
+.segmented_control_sm .segmented_control_item {
+  height: 28px;
+}
+
+.segmented_control_md .segmented_control_item {
+  height: var(--app-control-height-sm);
+}
+
+.segmented_control_lg .segmented_control_item {
+  height: var(--app-control-height-md);
+  font-size: var(--app-font-size-md);
+}
+
+@media (hover: hover) {
+  .segmented_control_item:hover:not(:disabled):not(.segmented_control_item_selected) {
+    color: var(--app-color-text);
+  }
+}
+
+.segmented_control_item:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: var(--app-shadow-focus-ring);
+}
+
+.segmented_control_item:disabled {
+  cursor: not-allowed;
+  opacity: var(--app-opacity-disabled);
+}
+
+.segmented_control_item_selected {
+  background-color: var(--app-color-surface);
+  color: var(--app-color-text);
+  box-shadow: var(--app-shadow-xs);
+}
+
+.segmented_control_icon {
+  width: var(--app-icon-size-sm);
+  height: var(--app-icon-size-sm);
+  flex-shrink: 0;
+}

@@ -1,0 +1,32 @@
+.template_versions_meta {
+  display: block;
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.template_versions_end {
+  text-align: right;
+}
+
+.template_versions_sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.template_versions_fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+  margin: 0;
+  padding-left: var(--app-space-5);
+  font-size: var(--app-font-size-sm);
+
+  code {
+    font-family: var(--app-font-family-mono);
+    color: var(--app-color-text-muted);
+  }
+}

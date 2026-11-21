@@ -1,0 +1,26 @@
+.tenant_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-5);
+}
+
+.tenant_list_name {
+  display: block;
+  font-weight: var(--app-font-weight-semibold);
+}
+
+.tenant_list_key {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+.tenant_list_number {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tenant_list_end {
+  text-align: end;
+  white-space: nowrap;
+}

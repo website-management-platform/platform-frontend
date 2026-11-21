@@ -1,0 +1,18 @@
+.preset_detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-5);
+}
+
+.preset_detail_badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-1);
+}
+
+.preset_detail_actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--app-space-2);
+}

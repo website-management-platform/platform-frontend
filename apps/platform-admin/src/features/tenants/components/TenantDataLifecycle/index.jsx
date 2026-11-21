@@ -29,7 +29,7 @@ const PurgeModal = ({ tenant, onClose }) => {
   return (
     <Modal open onClose={onClose} icon={FiTrash2} iconTone="danger"
       title="Müşteri verisini kalıcı olarak sil"
-      description="Bütün siteler, içerik, revizyonlar, medya, form başvuruları, dışa aktarmalar ve müşteri hesabı silinir. Geri alınamaz. Silme kaydı denetim ve silme defterinde kalır."
+      description="Bütün siteler, içerik, revizyonlar, medya, form başvuruları, dışa aktarmalar ve panel girişi silinir. Geri alınamaz. Silme kaydı denetim ve silme defterinde kalır."
       busy={action.isPending}
       footer={<><Button variant="outline" onClick={onClose}>Vazgeç</Button><Button type="submit" form="tenant-data-form" color="danger" loading={action.isPending}>Kalıcı olarak sil</Button></>}>
       <form id="tenant-data-form" className="tenant_data_form" noValidate onSubmit={submit}>

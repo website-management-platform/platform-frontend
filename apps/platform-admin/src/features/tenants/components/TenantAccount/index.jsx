@@ -13,8 +13,9 @@ import { useSendSetupLink } from "../../api";
 import AccountFormModal from "../AccountFormModal";
 
 /**
- * Müşterinin tek hesabı (ADR-056): bu hesap müşterinin bütün sitelerinde tam yetkilidir.
- * Rol, davet ve ek kullanıcı yoktur; platform hesabın e-postasını ve adını yönetir, şifre belirleme bağlantısı gönderir.
+ * Müşterinin tek panel girişi (ADR-056): bu hesap müşterinin bütün sitelerinde tam yetkilidir.
+ * Rol, davet ve ek kullanıcı yoktur; platform giriş e-postasını ve yetkili kişiyi yönetir, şifre belirleme bağlantısı gönderir.
+ * Yetkili kişi boş bırakılmışsa sunucu müşteri adını kullanır; bu durumda "—" gösterilir.
  */
 const TenantAccount = ({ tenant, canManage }) => {
   const [editing, setEditing] = useState(false);
@@ -29,17 +30,17 @@ const TenantAccount = ({ tenant, canManage }) => {
 
   const saved = ({ emailChanged }) => {
     setEditing(false);
-    toast.success(emailChanged ? "Hesap kaydedildi; şifre belirleme bağlantısı gönderildi" : "Hesap kaydedildi");
+    toast.success(emailChanged ? "Panel girişi kaydedildi; şifre belirleme bağlantısı gönderildi" : "Panel girişi kaydedildi");
   };
 
   return (
     <Card
-      title="Müşteri hesabı"
+      title="Panel girişi"
       icon={FiUser}
-      description="Müşteri panele bu hesapla girer ve bütün sitelerini yönetir."
+      description="Müşteri panele bu e-postayla girer ve bütün sitelerini yönetir."
       actions={account && editable && (
         <ButtonGroup attached={false} ariaLabel="Hesap işlemleri">
-          <Button variant="outline" size="sm" icon={FiEdit2} onClick={() => setEditing(true)}>Hesabı düzenle</Button>
+          <Button variant="outline" size="sm" icon={FiEdit2} onClick={() => setEditing(true)}>Düzenle</Button>
           {tenant.status === "ACTIVE" && (
             <Button variant="outline" size="sm" icon={FiSend} loading={sendLink.isPending} onClick={send}>
               {account.passwordSet ? "Sıfırlama bağlantısı gönder" : "Kurulum bağlantısı gönder"}
@@ -53,8 +54,8 @@ const TenantAccount = ({ tenant, canManage }) => {
           layout="grid"
           columns={2}
           items={[
-            { label: "Ad soyad", value: account.displayName },
-            { label: "E-posta", value: account.email },
+            { label: "Giriş e-postası", value: account.email },
+            { label: "Yetkili kişi", value: account.displayName !== tenant.displayName ? account.displayName : "—" },
             {
               label: "Şifre",
               value: account.passwordSet
@@ -68,9 +69,9 @@ const TenantAccount = ({ tenant, canManage }) => {
         <EmptyState
           variant="bordered"
           icon={FiUserPlus}
-          title="Hesap yok"
-          description={editable ? "Müşterinin panele girebilmesi için bir hesap oluşturun. E-posta adresine şifre belirleme bağlantısı gider." : "Bu müşteriye bağlı hesap yok."}
-          action={editable && <Button icon={FiUserPlus} onClick={() => setEditing(true)}>Hesap oluştur</Button>}
+          title="Panel girişi yok"
+          description={editable ? "Müşterinin panele girebilmesi için bir giriş e-postası tanımlayın; bu adrese şifre belirleme bağlantısı gider." : "Bu müşteriye bağlı panel girişi yok."}
+          action={editable && <Button icon={FiUserPlus} onClick={() => setEditing(true)}>Panel girişi oluştur</Button>}
         />
       )}
       {editing && <AccountFormModal tenant={tenant} onClose={() => setEditing(false)} onSaved={saved} />}

@@ -10,10 +10,10 @@ import { useUpdateAccount } from "../../api";
 import { validateAccount } from "../../account";
 import "./account_form_modal.scss";
 
-/** Müşteri hesabının e-postasını ve adını düzenler; e-posta değişirse yeni adrese şifre belirleme bağlantısı gider. */
+/** Panel girişinin e-postasını ve yetkili kişisini düzenler; e-posta değişirse yeni adrese şifre belirleme bağlantısı gider. */
 const AccountFormModal = ({ tenant, onClose, onSaved }) => {
   const account = tenant.account;
-  const [values, setValues] = useState({ email: account?.email ?? "", displayName: account?.displayName ?? "" });
+  const [values, setValues] = useState({ email: account?.email ?? "", displayName: account && account.displayName !== tenant.displayName ? account.displayName : "" });
   const [errors, setErrors] = useState({});
   const formRef = useRef(null);
   const update = useUpdateAccount(tenant.id);
@@ -49,8 +49,8 @@ const AccountFormModal = ({ tenant, onClose, onSaved }) => {
     <Modal
       open
       onClose={() => !update.isPending && onClose()}
-      title={account ? "Hesabı düzenle" : "Hesap oluştur"}
-      description={`${tenant.displayName} müşterisinin panele giriş yapan hesabı.`}
+      title={account ? "Panel girişini düzenle" : "Panel girişi oluştur"}
+      description={`${tenant.displayName} panele bu e-postayla girer.`}
       icon={FiUser}
       footer={(
         <>
@@ -61,8 +61,8 @@ const AccountFormModal = ({ tenant, onClose, onSaved }) => {
     >
       <form id="account-form" ref={formRef} className="account_form_modal" onSubmit={submit} noValidate>
         {formError && <Alert variant="danger" size="compact">{formError}</Alert>}
-        <Input label="Ad soyad" name="displayName" autoComplete="off" value={values.displayName} onChange={(event) => setField("displayName", event.target.value)} error={errors.displayName} maxLength={120} required autoFocus />
-        <Input label="E-posta" name="email" type="email" autoComplete="off" value={values.email} onChange={(event) => setField("email", event.target.value)} error={errors.email} maxLength={254} required />
+        <Input label="Giriş e-postası" name="email" type="email" autoComplete="off" value={values.email} onChange={(event) => setField("email", event.target.value)} error={errors.email} maxLength={254} required autoFocus />
+        <Input label="Yetkili kişi" name="displayName" autoComplete="off" value={values.displayName} onChange={(event) => setField("displayName", event.target.value)} error={errors.displayName} maxLength={120} hint="Kuruluş adına panele giren kişi. Boş bırakılırsa müşteri adı kullanılır." />
         {emailChanged && (
           <Alert variant="warning" size="compact">
             E-posta değişince hesabın açık oturumları kapanır ve yeni adrese şifre belirleme bağlantısı gönderilir.

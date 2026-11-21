@@ -17,7 +17,7 @@ const validateFields = (values, creating) => ({
   ...(creating ? (({ displayName, email }) => ({ accountName: displayName, accountEmail: email }))(validateAccount({ displayName: values.accountName, email: values.accountEmail })) : {}),
 });
 
-const FIELDS = ["displayName", "maxSites", "accountName", "accountEmail"];
+const FIELDS = ["displayName", "accountEmail", "accountName", "maxSites"];
 const SERVER_FIELDS = { displayName: "displayName", maxSites: "quota.maxSites", accountName: "account.displayName", accountEmail: "account.email" };
 
 /** tenant verilmezse yeni müşteri oluşturur; verilirse düzenler. */
@@ -63,7 +63,7 @@ const TenantFormModal = ({ open, tenant = null, onClose, onSaved }) => {
       open={open}
       onClose={() => !mutation.isPending && onClose()}
       title={creating ? "Yeni müşteri" : "Müşteri bilgilerini düzenle"}
-      description={creating ? "Müşteri ve panele giriş yapacak tek hesabı birlikte oluşturulur. Hesabın e-postasına şifre belirleme bağlantısı gider." : undefined}
+      description={creating ? "Müşteri ve panel girişi birlikte oluşturulur. Giriş e-postasına şifre belirleme bağlantısı gider." : undefined}
       icon={FiBriefcase}
       footer={(
         <>
@@ -77,9 +77,9 @@ const TenantFormModal = ({ open, tenant = null, onClose, onSaved }) => {
         <Input label="Müşteri adı" name="displayName" value={values.displayName} onChange={(event) => setField("displayName", event.target.value)} error={errors.displayName} maxLength={160} hint="Kişi veya kuruluşun görünen adı." required autoFocus />
         {creating && (
           <fieldset className="tenant_form_modal_account">
-            <legend className="tenant_form_modal_legend">Müşteri hesabı</legend>
-            <Input label="Ad soyad" name="accountName" autoComplete="off" value={values.accountName} onChange={(event) => setField("accountName", event.target.value)} error={errors.accountName} maxLength={120} required />
-            <Input label="E-posta" name="accountEmail" type="email" autoComplete="off" value={values.accountEmail} onChange={(event) => setField("accountEmail", event.target.value)} error={errors.accountEmail} maxLength={254} hint="Müşteri bu adresle giriş yapar; tüm sitelerinde tam yetkilidir." required />
+            <legend className="tenant_form_modal_legend">Panel girişi</legend>
+            <Input label="Giriş e-postası" name="accountEmail" type="email" autoComplete="off" value={values.accountEmail} onChange={(event) => setField("accountEmail", event.target.value)} error={errors.accountEmail} maxLength={254} hint="Müşteri panele bu adresle girer; bütün sitelerinde tam yetkilidir." required />
+            <Input label="Yetkili kişi" name="accountName" autoComplete="off" value={values.accountName} onChange={(event) => setField("accountName", event.target.value)} error={errors.accountName} maxLength={120} hint="Kuruluş adına panele giren kişi. Boş bırakılırsa müşteri adı kullanılır." />
           </fieldset>
         )}
         <Input label="Site sınırı" name="maxSites" type="number" inputMode="numeric" min={1} max={100} value={values.maxSites} onChange={(event) => setField("maxSites", event.target.value)} error={errors.maxSites} hint="Müşterinin açabileceği en fazla site sayısı (1–100)." required />

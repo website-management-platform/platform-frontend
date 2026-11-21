@@ -85,13 +85,11 @@ const TenantDetail = () => {
 
       <TabPanel id="genel" activeTab={activeTab} idPrefix="tenant">
         <div className="tenant_detail_section">
-          <Card title="Müşteri bilgileri">
+          <Card title="Genel">
             <DescriptionList
               layout="grid"
               columns={2}
               items={[
-                { label: "Müşteri adı", value: tenant.displayName },
-                { label: "Durum", value: <StatusBadge status={tenant.status} /> },
                 { label: "Site kullanımı", value: `${tenant.siteCount} / ${tenant.quota.maxSites}` },
                 { label: "Oluşturma", value: formatDateTime(tenant.createdAt) },
                 { label: "Son güncelleme", value: formatDateTime(tenant.updatedAt) },

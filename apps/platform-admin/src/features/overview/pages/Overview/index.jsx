@@ -56,7 +56,7 @@ const Overview = () => {
           <div className="overview_stats">
             <StatCard icon={FiBriefcase} label="Müşteriler" value={data.tenants.total} detail={<StatusSummary counts={data.tenants} />} to="/musteriler" />
             <StatCard icon={FiGlobe} label="Web siteleri" value={data.sites.total} detail={<StatusSummary counts={data.sites} />} to="/siteler" />
-            <StatCard icon={FiUsers} label="Müşteri hesapları" value={data.customerUsers} detail={<span className="overview_stat_breakdown">Her müşterinin tek hesabı</span>} />
+            <StatCard icon={FiUsers} label="Panel girişleri" value={data.customerUsers} detail={<span className="overview_stat_breakdown">Her müşteriye bir giriş</span>} />
             <StatCard icon={FiMail} label="Şifre bekleyen hesaplar" value={data.pendingAccounts} detail={<span className="overview_stat_breakdown">Kurulum bağlantısı gönderildi</span>} />
           </div>
           {data.recentAudit && (

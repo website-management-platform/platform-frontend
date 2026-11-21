@@ -186,11 +186,11 @@ Medya kullanımı, başarısız işler ve sistem sağlığı ilgili aşamalarda 
 
 - `key` isteğe bağlıdır; verilmezse addan üretilir (`deneme-sirketi`).
 - `quota` isteğe bağlıdır; verilmezse 100 olur.
-- `account` zorunludur. Müşteri ve hesabı aynı transaction'da oluşur. Hesabın şifresi yoktur; e-postaya şifre belirleme bağlantısı gider ("Müşteri hesabı").
+- `account` zorunludur; `account.email` zorunlu, `account.displayName` (yetkili kişi) isteğe bağlıdır. Boş veya verilmemişse hesabın adı müşteri adı olur (en çok 120 karakter). Verilirse 2–120 karakter. Müşteri ve hesabı aynı transaction'da oluşur. Hesabın şifresi yoktur; e-postaya şifre belirleme bağlantısı gider ("Müşteri hesabı").
 
 **Yanıt** — `201`: Tenant sunumu.
 
-**Hatalar:** `422`; `errors[].path` değerleri `key` (`INVALID` · `NOT_UNIQUE`), `displayName`, `quota.maxSites` (`OUT_OF_RANGE`), `account` (`REQUIRED`), `account.email` (`INVALID` · `NOT_UNIQUE`), `account.displayName` (`REQUIRED`).
+**Hatalar:** `422`; `errors[].path` değerleri `key` (`INVALID` · `NOT_UNIQUE`), `displayName`, `quota.maxSites` (`OUT_OF_RANGE`), `account` (`REQUIRED`), `account.email` (`INVALID` · `NOT_UNIQUE`), `account.displayName` (`INVALID`).
 
 **Yan etki:** `tenant.created`; hesap kurulum e-postası (`account_setup`).
 
@@ -323,12 +323,13 @@ Hesabı oluşturur (yoksa) veya e-postasını ve adını değiştirir.
 { "email": "selin@ornekholding.example.test", "displayName": "Selin Kaya" }
 ```
 
+- `displayName` (yetkili kişi) isteğe bağlıdır; boşsa müşteri adı kullanılır.
 - E-posta değişirse hesabın açık müşteri oturumları kapatılır ve yeni adrese şifre belirleme bağlantısı gider. Mevcut şifre geçerli kalır.
 - Arşivlenmiş veya kalıcı silinmiş müşteride `409 INVALID_STATE_TRANSITION`.
 
 **Yanıt** — `200`: `{ "account": hesap sunumu }`.
 
-**Hatalar:** `422`; `account.email` (`INVALID` · `NOT_UNIQUE`), `account.displayName` (`REQUIRED`).
+**Hatalar:** `422`; `account.email` (`INVALID` · `NOT_UNIQUE`), `account.displayName` (`INVALID`).
 
 **Yan etki:** `account.created` veya `account.updated`.
 
@@ -416,5 +417,6 @@ Site bağlamı. Panel adres `/siteler/{siteId}` ile başladığında bu ucu ça�
 | 17 Kas 2026 | Aşama 6: site sunumu, bootstrap ve site PATCH'inde `publishingTools`; bootstrap modüllerinde `area` ve `role`; askıdaki sitede delivery `503 SITE_UNAVAILABLE`. |
 | 18 Kas 2026 | Aşama 7: dil değişikliği ayrı uca taşındı (etki raporu); `sites.archived_locales`. |
 | 18 Kas 2026 | Aşama 8: müşteri durumu `PURGED` (kalıcı silme sonrası mezar taşı), `legalHold` ve `purgedAt` alanları; site kopyalama ([15-site-data.md](15-site-data.md)). |
+| 21 Kas 2026 | Hesap adı "yetkili kişi" oldu ve isteğe bağlı: boşsa müşteri adı kullanılır; hata kodu `REQUIRED` yerine `INVALID`. Panel metinleri "Panel girişi" olarak sadeleşti. |
 | 18 Kas 2026 | **Sade yetki modeli (ADR-056):** müşteri sunumunda `memberCount` yerine `account`; müşteri oluşturmada zorunlu `account`; hesap uçları ("Müşteri hesabı"); genel bakışta `pendingInvitations` yerine `pendingAccounts`; site listesi ve bootstrap'tan `role`/`roleLabel` çıkarıldı. |
 | 18 Kas 2026 | Sadeleştirme (ADR-057): müşteri ve site `key` isteğe bağlı (sunucu üretir); `publishingTools` kaldırıldı; müşteri sunumunda `legalHold` yok. |
